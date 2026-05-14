@@ -786,36 +786,48 @@ footer p {
   background: var(--navy-mid);
   padding: 5rem 4rem;
 }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1100px;
+}
 .testimonial-wrap {
-  max-width: 760px;
   position: relative;
-  padding: 2.5rem 3rem;
+  padding: 2.2rem 2.4rem;
   border: 1px solid rgba(201,168,76,0.15);
   border-left: 4px solid var(--gold);
   background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s;
 }
+.testimonial-wrap:hover { background: rgba(201,168,76,0.04); }
 .testimonial-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 300;
   font-style: italic;
   color: var(--cream);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 1.5rem;
 }
 .testimonial-quote::before {
   content: '\201C';
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: var(--gold);
   opacity: 0.3;
   line-height: 0;
-  vertical-align: -1.2rem;
-  margin-right: 0.3rem;
+  vertical-align: -1.1rem;
+  margin-right: 0.25rem;
 }
 .testimonial-author {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,0.12);
 }
 .testimonial-name {
   font-family: 'DM Sans', sans-serif;
@@ -839,6 +851,7 @@ footer p {
   section { padding: 4rem 1.5rem; }
   #hero { padding: 6rem 1.5rem 4rem; }
   #testimonial { padding: 4rem 1.5rem; }
+  .testimonials-grid { grid-template-columns: 1fr; }
   .testimonial-wrap { padding: 1.8rem 1.5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -1580,14 +1593,26 @@ footer p {
 
 <!-- TESTIMONIAL -->
 <section id="testimonial">
-  <p class="section-label reveal">Testimonial</p>
+  <p class="section-label reveal">Recommendations</p>
   <h2 class="section-title reveal">What colleagues <em>say</em></h2>
-  <div class="testimonial-wrap reveal">
-    <p class="testimonial-quote">Andrew brings a rare combination of operational discipline and genuine care for learners. His ability to manage complex, multi-stakeholder programs while keeping the human experience at the centre is something I have rarely seen in someone so early in their career. He is the kind of person who makes every program better just by being in the room.</p>
-    <div class="testimonial-author">
-      <span class="testimonial-name">Program Leadership — Center for Re-Imagined Africa</span>
-      <span class="testimonial-role">African Leadership University · Kigali, Rwanda</span>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-wrap reveal">
+      <p class="testimonial-quote">His intellectual discipline, curiosity, and ability to translate learning into action consistently set him apart among his peers. Andrew asks questions that push conversations deeper and often draws connections between policy, technology, and learning systems — evidence of a reflective thinker and future systems leader.</p>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Arnaud Michel Nibaruta</span>
+        <span class="testimonial-role">Program Manager, BSc. Entrepreneurial Leadership · African Leadership University · Kigali, Rwanda</span>
+      </div>
     </div>
+
+    <div class="testimonial-wrap reveal">
+      <p class="testimonial-quote">Andrew is undoubtedly one of the most exciting students I have ever had the pleasure of working with. He impressed us from day one with his enthusiasm, efficiency and hard work, and later became a key person for the success of this study. Responsible, punctual, bright and always eager to learn and find solutions — I have no hesitation in endorsing his ability and skills.</p>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Dr Pei-tseng Jenny Hsieh</span>
+        <span class="testimonial-role">Senior Education &amp; Assessment Specialist · National Foundation for Educational Research (NFER) · University of Oxford</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
