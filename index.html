@@ -670,6 +670,89 @@ section {
 }
 .cert-verify:hover { opacity: 1; }
 
+/* ── AI PRODUCTS ── */
+#ai-products { background: var(--navy-mid); }
+.ai-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.4rem;
+  max-width: 1100px;
+}
+.ai-product-card {
+  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(255,255,255,0.02);
+  overflow: hidden;
+  transition: all 0.35s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.ai-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.ai-product-card:hover { border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.04); transform: translateY(-3px); }
+.ai-product-card:hover::before { transform: scaleX(1); }
+.ai-product-body { padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+.ai-product-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.ai-product-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.25;
+}
+.ai-product-desc {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--gray);
+  flex: 1;
+}
+.ai-product-footer {
+  padding: 0.9rem 1.6rem;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ai-product-stack {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.ai-product-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  color: var(--gray);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 0.15rem 0.45rem;
+  letter-spacing: 0.06em;
+}
+.ai-product-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.ai-product-link:hover { opacity: 1; }
+
 /* ── CONTACT ── */
 #contact { background: var(--navy); padding: 6rem 4rem; }
 .contact-tagline {
@@ -947,6 +1030,7 @@ footer p {
     <li><a href="#experience">Experience</a></li>
     <li><a href="#volunteering">Leadership</a></li>
     <li><a href="#projects">Work</a></li>
+    <li><a href="#ai-products">AI Products</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#certifications">Development</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -962,6 +1046,7 @@ footer p {
   <a href="#experience" class="mobile-nav-link">Experience</a>
   <a href="#volunteering" class="mobile-nav-link">Leadership</a>
   <a href="#projects" class="mobile-nav-link">Work</a>
+  <a href="#ai-products" class="mobile-nav-link">AI Products</a>
   <a href="#skills" class="mobile-nav-link">Skills</a>
   <a href="#certifications" class="mobile-nav-link">Development</a>
   <a href="#contact" class="mobile-nav-link">Contact</a>
@@ -1249,6 +1334,111 @@ footer p {
         <div class="metric"><span class="metric-val">Rwanda</span><span class="metric-label">Location</span></div>
         <div class="metric"><span class="metric-val">EdTech</span><span class="metric-label">Sector</span></div>
         <div class="metric"><span class="metric-val">2023</span><span class="metric-label">Year</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI PRODUCTS -->
+<section id="ai-products">
+  <p class="section-label reveal">Shipped Products</p>
+  <h2 class="section-title reveal">AI Products I've <em>built & launched</em></h2>
+  <div class="ai-products-grid">
+
+    <div class="ai-product-card reveal">
+      <div class="ai-product-body">
+        <div class="ai-product-tag">EdTech · AI Platform · Founder & CEO</div>
+        <div class="ai-product-title">Student Companion AI</div>
+        <div class="ai-product-desc">The flagship product — an AI-powered academic, administrative, and personal support platform for African university students. Customisable per institution, built on the Anthropic Claude API, and accessible via web and WhatsApp. Designed to reduce the friction students face navigating university life.</div>
+      </div>
+      <div class="ai-product-footer">
+        <div class="ai-product-stack">
+          <span class="ai-product-chip">Claude API</span>
+          <span class="ai-product-chip">WhatsApp</span>
+          <span class="ai-product-chip">EdTech</span>
+        </div>
+        <a href="https://studentcompanionai.xyz" target="_blank" rel="noopener" class="ai-product-link">Visit ↗</a>
+      </div>
+    </div>
+
+    <div class="ai-product-card reveal">
+      <div class="ai-product-body">
+        <div class="ai-product-tag">Opportunities · African Undergraduates</div>
+        <div class="ai-product-title">SCA Opportunities</div>
+        <div class="ai-product-desc">A curated, filterable directory of 45+ live internships, fellowships, scholarships, jobs, and competitions — built specifically for African undergraduate students. Updated regularly, free to browse, no sign-up required. Includes a weekly email digest and quick-start guides by goal.</div>
+      </div>
+      <div class="ai-product-footer">
+        <div class="ai-product-stack">
+          <span class="ai-product-chip">Curation</span>
+          <span class="ai-product-chip">5 Categories</span>
+          <span class="ai-product-chip">Free</span>
+        </div>
+        <a href="https://andrewstevenboima.github.io/sca-opportunities" target="_blank" rel="noopener" class="ai-product-link">Visit ↗</a>
+      </div>
+    </div>
+
+    <div class="ai-product-card reveal">
+      <div class="ai-product-body">
+        <div class="ai-product-tag">Civic Tech · Youth Employment · MRU</div>
+        <div class="ai-product-title">Africa Jobs MRU</div>
+        <div class="ai-product-desc">A full-stack youth employment platform for the Mano River Union — covering Sierra Leone, Liberia, Guinea, and Côte d'Ivoire. Features AI-powered job matching, district-level job maps, gender analytics, a community points system (Mano Points), and an ATS resume analyser. Aligned with 5 UN SDGs.</div>
+      </div>
+      <div class="ai-product-footer">
+        <div class="ai-product-stack">
+          <span class="ai-product-chip">AI Matching</span>
+          <span class="ai-product-chip">4 Nations</span>
+          <span class="ai-product-chip">SDG-aligned</span>
+        </div>
+        <a href="https://andrewstevenboima.github.io/africa-jobs-mru-v2/" target="_blank" rel="noopener" class="ai-product-link">Visit ↗</a>
+      </div>
+    </div>
+
+    <div class="ai-product-card reveal">
+      <div class="ai-product-body">
+        <div class="ai-product-tag">Fitness · Wellness · African Context</div>
+        <div class="ai-product-title">SCA Gym Tutor</div>
+        <div class="ai-product-desc">A workout companion app with 56 exercises across strength, tone, mobility, cardio, and African dance styles (Amapiano, Azonto, Gwara Gwara). Each exercise includes form cues, illustrations, and demo links. Users can build custom workout templates — all offline-capable.</div>
+      </div>
+      <div class="ai-product-footer">
+        <div class="ai-product-stack">
+          <span class="ai-product-chip">56 Exercises</span>
+          <span class="ai-product-chip">Offline</span>
+          <span class="ai-product-chip">African Dance</span>
+        </div>
+        <a href="https://andrewstevenboima.github.io/sca-gym-tutor/" target="_blank" rel="noopener" class="ai-product-link">Visit ↗</a>
+      </div>
+    </div>
+
+    <div class="ai-product-card reveal">
+      <div class="ai-product-body">
+        <div class="ai-product-tag">EdTech · Geography · Classroom Game</div>
+        <div class="ai-product-title">Africa54</div>
+        <div class="ai-product-desc">An interactive African geography quiz game — 54 countries, flags, and capitals. Supports solo practice, teacher-hosted classroom rounds (Kahoot-style with live leaderboards), and student join-by-PIN. Built at ALU, powered by Student Companion AI. Works offline.</div>
+      </div>
+      <div class="ai-product-footer">
+        <div class="ai-product-stack">
+          <span class="ai-product-chip">54 Countries</span>
+          <span class="ai-product-chip">Classroom Mode</span>
+          <span class="ai-product-chip">Offline</span>
+        </div>
+        <a href="https://andrewstevenboima.github.io/africa54/" target="_blank" rel="noopener" class="ai-product-link">Visit ↗</a>
+      </div>
+    </div>
+
+    <div class="ai-product-card reveal">
+      <div class="ai-product-body">
+        <div class="ai-product-tag">Inclusion · ADHD · Kinyarwanda</div>
+        <div class="ai-product-title">Urumuri Digital Inclusion</div>
+        <div class="ai-product-desc">A bilingual digital inclusion platform for neurodiverse learners in Rwanda. Student Mode offers games and lessons in Kinyarwanda designed for learners with ADHD and different learning needs. Teacher Mode provides progress dashboards and ADHD support guides — built on the principle that different minds deserve equal opportunities to learn.</div>
+      </div>
+      <div class="ai-product-footer">
+        <div class="ai-product-stack">
+          <span class="ai-product-chip">Kinyarwanda</span>
+          <span class="ai-product-chip">ADHD</span>
+          <span class="ai-product-chip">Inclusion</span>
+        </div>
+        <a href="https://andrewstevenboima.github.io/urumuri-digital-inclusion/" target="_blank" rel="noopener" class="ai-product-link">Visit ↗</a>
       </div>
     </div>
 
