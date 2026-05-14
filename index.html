@@ -14,6 +14,7 @@
 <meta name="twitter:title" content="Andrew Steven Boima — Program Coordinator & AI Product Builder">
 <meta name="twitter:description" content="Bridging education and technology to create meaningful learning experiences across Africa.">
 <meta name="twitter:image" content="https://andrewstevenboima.github.io/andrew-boima.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -662,6 +663,52 @@ footer p {
   opacity: 0.35;
 }
 
+/* ── BACK TO TOP ── */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--gold-light); }
+.back-to-top svg { width: 16px; height: 16px; stroke: var(--navy); stroke-width: 2.5; fill: none; }
+
+/* ── SKILL TAGS ── */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+.skill-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 0.22rem 0.6rem;
+  letter-spacing: 0.06em;
+  transition: all 0.25s;
+  cursor: default;
+}
+.skill-tag:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+}
+
 /* ── HERO ANIMATED GRADIENT ── */
 .hero-gradient-orb {
   position: absolute;
@@ -1128,65 +1175,65 @@ footer p {
 
     <div class="skill-group reveal">
       <h3>Program & Learning</h3>
-      <ul class="skill-list">
-        <li>Cohort program coordination</li>
-        <li>LMS management (Canvas)</li>
-        <li>Curriculum development support</li>
-        <li>Participant feedback & synthesis</li>
-        <li>Engagement & completion tracking</li>
-        <li>Ambassador program management</li>
-      </ul>
+      <div class="skill-tags">
+        <span class="skill-tag">Cohort Coordination</span>
+        <span class="skill-tag">Canvas LMS</span>
+        <span class="skill-tag">Curriculum Support</span>
+        <span class="skill-tag">Feedback Synthesis</span>
+        <span class="skill-tag">Engagement Tracking</span>
+        <span class="skill-tag">Ambassador Programs</span>
+        <span class="skill-tag">Coaching Logistics</span>
+      </div>
     </div>
 
     <div class="skill-group reveal">
       <h3>Data & Operations</h3>
-      <ul class="skill-list">
-        <li>Performance dashboards</li>
-        <li>Data validation & reporting</li>
-        <li>Program documentation systems</li>
-        <li>Multi-stakeholder coordination</li>
-        <li>Cross-timezone logistics</li>
-        <li>Audit-ready record keeping</li>
-      </ul>
+      <div class="skill-tags">
+        <span class="skill-tag">Performance Dashboards</span>
+        <span class="skill-tag">Data Validation</span>
+        <span class="skill-tag">Program Reporting</span>
+        <span class="skill-tag">Multi-stakeholder Coordination</span>
+        <span class="skill-tag">Cross-timezone Logistics</span>
+        <span class="skill-tag">Knowledge Management</span>
+      </div>
     </div>
 
     <div class="skill-group reveal">
       <h3>Digital & Technical</h3>
-      <ul class="skill-list">
-        <li>Anthropic Claude API</li>
-        <li>Microsoft Office Suite</li>
-        <li>Google Suite</li>
-        <li>Zoom / Slack / Google Meet</li>
-        <li>Hardware & software support</li>
-      </ul>
+      <div class="skill-tags">
+        <span class="skill-tag">Anthropic Claude API</span>
+        <span class="skill-tag">Microsoft Office</span>
+        <span class="skill-tag">Google Suite</span>
+        <span class="skill-tag">Zoom / Slack</span>
+        <span class="skill-tag">Hardware Support</span>
+        <span class="skill-tag">Basic HTML</span>
+      </div>
     </div>
 
     <div class="skill-group reveal">
       <h3>Research & Communication</h3>
-      <ul class="skill-list">
-        <li>Qualitative data collection</li>
-        <li>Survey design & analysis</li>
-        <li>Report writing & synthesis</li>
-        <li>Proposal & content writing</li>
-        <li>Facilitation & digital training</li>
-        <li>English (Professional)</li>
-      </ul>
+      <div class="skill-tags">
+        <span class="skill-tag">Qualitative Research</span>
+        <span class="skill-tag">Survey Design</span>
+        <span class="skill-tag">Report Writing</span>
+        <span class="skill-tag">Proposal Writing</span>
+        <span class="skill-tag">Facilitation</span>
+        <span class="skill-tag">English (Professional)</span>
+      </div>
     </div>
 
     <div class="skill-group reveal">
       <h3>Soft Skills</h3>
-      <ul class="skill-list">
-        <li>Problem Solving</li>
-        <li>Systems Thinking</li>
-        <li>Critical Thinking</li>
-        <li>Futures Thinking</li>
-        <li>Agile Response &amp; Adaptability</li>
-        <li>Constructive Feedback</li>
-        <li>Teamwork &amp; Collaboration</li>
-        <li>Emotional Intelligence</li>
-        <li>Cross-cultural Communication</li>
-        <li>Initiative &amp; Self-Management</li>
-      </ul>
+      <div class="skill-tags">
+        <span class="skill-tag">Systems Thinking</span>
+        <span class="skill-tag">Critical Thinking</span>
+        <span class="skill-tag">Futures Thinking</span>
+        <span class="skill-tag">Adaptability</span>
+        <span class="skill-tag">Emotional Intelligence</span>
+        <span class="skill-tag">Cross-cultural Communication</span>
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Self-Management</span>
+      </div>
     </div>
 
   </div>
@@ -1585,10 +1632,30 @@ footer p {
 <footer>
   <p>© 2026 Andrew Steven Boima · Kigali, Rwanda</p>
   <p class="footer-gold">ASB</p>
-  <p>Built with intention.</p>
+  <p>
+    <a href="https://www.linkedin.com/in/andrew-steven-boima-98654556" target="_blank" rel="noopener" style="color:var(--gray);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='0.45'">LinkedIn ↗</a>
+  </p>
 </footer>
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
 <script>
 (function() {
+
+  /* BACK TO TOP */
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   /* SCROLL PROGRESS */
   var bar = document.createElement('div');

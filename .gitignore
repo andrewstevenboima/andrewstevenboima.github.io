@@ -1,0 +1,5 @@
+gen_pdf.py
+puppeteer_cv.js
+cv-source.html
+.vscode/
+*.DS_Store
