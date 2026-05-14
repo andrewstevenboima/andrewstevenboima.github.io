@@ -535,7 +535,7 @@ section {
 }
 .edu-institution { font-size: 0.82rem; color: var(--gray); font-style: italic; }
 
-/* ── CERTIFICATIONS ── */
+/* ── CERTIFICATIONS — FLIP CARDS ── */
 #certifications { background: var(--navy); }
 .cert-category { max-width: 1100px; margin-bottom: 3rem; }
 .cert-category-title {
@@ -554,44 +554,119 @@ section {
 .cert-category-title .cat-icon svg { stroke: var(--gold); }
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
 }
+
+/* Flip card container */
 .cert-card {
-  padding: 1.2rem 1.4rem;
-  border: 1px solid rgba(201,168,76,0.1);
-  border-left: 3px solid rgba(201,168,76,0.3);
+  height: 140px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.cert-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.cert-card.flipped .cert-card-inner { transform: rotateY(180deg); }
+
+/* Front & back shared */
+.cert-front, .cert-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(201,168,76,0.15);
   background: rgba(255,255,255,0.02);
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  transition: all 0.3s;
+  justify-content: space-between;
 }
-.cert-card:hover { border-left-color: var(--gold); background: rgba(201,168,76,0.04); transform: translateX(3px); }
+
+/* Front */
+.cert-front {
+  border-top: 2px solid rgba(201,168,76,0.4);
+}
+.cert-front-top { display: flex; flex-direction: column; gap: 0.3rem; }
 .cert-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--cream);
   line-height: 1.3;
 }
-.cert-issuer { font-size: 0.76rem; color: var(--gray); font-style: italic; }
-.cert-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 0.3rem; }
+.cert-issuer { font-size: 0.72rem; color: var(--gray); font-style: italic; }
+.cert-front-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .cert-year {
   font-family: 'DM Mono', monospace;
   font-size: 0.6rem;
   color: var(--gold);
   letter-spacing: 0.1em;
-  opacity: 0.75;
+  opacity: 0.8;
+}
+.cert-flip-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--gray);
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.cert-card:hover .cert-flip-hint { opacity: 1; color: var(--gold); }
+.cert-card:hover .cert-front { border-top-color: var(--gold); background: rgba(201,168,76,0.04); }
+
+/* Back */
+.cert-back {
+  transform: rotateY(180deg);
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-top: 2px solid var(--gold);
+  gap: 0.5rem;
+}
+.cert-back-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1.3;
+}
+.cert-back-issuer {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  font-style: italic;
+  line-height: 1.4;
+}
+.cert-back-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: auto;
+}
+.cert-back-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
 }
 .cert-verify {
   font-family: 'DM Mono', monospace;
-  font-size: 0.58rem;
+  font-size: 0.62rem;
   color: var(--gold);
   text-decoration: none;
   letter-spacing: 0.07em;
-  opacity: 0.55;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   transition: opacity 0.2s;
+  opacity: 0.8;
 }
 .cert-verify:hover { opacity: 1; }
 
@@ -1299,6 +1374,7 @@ footer p {
 <section id="certifications">
   <p class="section-label reveal">Professional Development</p>
   <h2 class="section-title reveal">Courses &amp; <em>Certifications</em></h2>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gray);letter-spacing:0.1em;margin-bottom:2.5rem;opacity:0.7;">CLICK ANY CARD TO SEE DETAILS</p>
 
   <div class="cert-category">
     <div class="cert-category-title">
@@ -1306,63 +1382,169 @@ footer p {
       <span class="cat-label">AI &amp; Emerging Technology</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card" style="border-left-color: var(--gold);">
-          <div class="cert-name">Claude 101</div>
-          <div class="cert-issuer">Anthropic</div>
-          <div class="cert-meta">
-            <span class="cert-year">May 2026</span>
-            <span class="cert-verify" style="opacity:0.75; cursor:default;">No. zpkwu8u2kznq</span>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="Claude 101 — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">Claude 101</div>
+              <div class="cert-issuer">Anthropic</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">May 2026</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
           </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">AI Augmented Professional Development Skills in the Digital Age</div>
-          <div class="cert-issuer">ALX · AI Career Essentials (AiCE)</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://intranet.alxswe.com/certificates/PYCBXGcSn6" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Google AI Essentials</div>
-          <div class="cert-issuer">Google · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/GCS5UN4W2E9U" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Generative AI: Prompt Engineering Basics</div>
-          <div class="cert-issuer">IBM · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/8YVJPXF4X3WL" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Foundations of AR</div>
-          <div class="cert-issuer">Meta · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/TYMH8QAM99XF" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Innovation and Emerging Technology: Be Disruptive</div>
-          <div class="cert-issuer">Macquarie University · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/WUTF3WVUMST8" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Create Facebook Login using HTML &amp; CSS — 7-Day Bootcamp</div>
-          <div class="cert-issuer">DevTown · MLSA &amp; GDSC KIIT Chapter</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://cert.devtown.in.tech/verify/Z2lpiXu" target="_blank" class="cert-verify">Verify &#8599;</a>
+          <div class="cert-back">
+            <div class="cert-back-title">Claude 101</div>
+            <div class="cert-back-issuer">Anthropic · Certificate of Completion</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">Issued: May 5, 2026</span>
+              <span class="cert-back-year">No. zpkwu8u2kznq</span>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="AI Augmented Professional Development — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">AI Augmented Professional Development</div>
+              <div class="cert-issuer">ALX · AI Career Essentials (AiCE)</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">2024</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">AI Augmented Professional Development Skills in the Digital Age</div>
+            <div class="cert-back-issuer">ALX · AI Career Essentials (AiCE)</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">2024</span>
+              <a href="https://intranet.alxswe.com/certificates/PYCBXGcSn6" target="_blank" class="cert-verify">Verify Certificate ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="Google AI Essentials — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">Google AI Essentials</div>
+              <div class="cert-issuer">Google · Coursera</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">2024</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">Google AI Essentials</div>
+            <div class="cert-back-issuer">Google · Coursera</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">2024</span>
+              <a href="https://coursera.org/verify/GCS5UN4W2E9U" target="_blank" class="cert-verify">Verify Certificate ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="Generative AI Prompt Engineering — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">Generative AI: Prompt Engineering Basics</div>
+              <div class="cert-issuer">IBM · Coursera</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">2024</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">Generative AI: Prompt Engineering Basics</div>
+            <div class="cert-back-issuer">IBM · Coursera</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">2024</span>
+              <a href="https://coursera.org/verify/8YVJPXF4X3WL" target="_blank" class="cert-verify">Verify Certificate ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="Foundations of AR — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">Foundations of AR</div>
+              <div class="cert-issuer">Meta · Coursera</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">2023</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">Foundations of AR</div>
+            <div class="cert-back-issuer">Meta · Coursera</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">2023</span>
+              <a href="https://coursera.org/verify/TYMH8QAM99XF" target="_blank" class="cert-verify">Verify Certificate ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="Innovation and Emerging Technology — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">Innovation &amp; Emerging Technology: Be Disruptive</div>
+              <div class="cert-issuer">Macquarie University · Coursera</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">2024</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">Innovation and Emerging Technology: Be Disruptive</div>
+            <div class="cert-back-issuer">Macquarie University · Coursera</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">2024</span>
+              <a href="https://coursera.org/verify/WUTF3WVUMST8" target="_blank" class="cert-verify">Verify Certificate ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal" role="button" tabindex="0" aria-label="HTML CSS Bootcamp — click to flip">
+        <div class="cert-card-inner">
+          <div class="cert-front">
+            <div class="cert-front-top">
+              <div class="cert-name">HTML &amp; CSS — 7-Day Bootcamp</div>
+              <div class="cert-issuer">DevTown · MLSA &amp; GDSC KIIT</div>
+            </div>
+            <div class="cert-front-bottom">
+              <span class="cert-year">2023</span>
+              <span class="cert-flip-hint">tap for details →</span>
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">Create Facebook Login using HTML &amp; CSS — 7-Day Bootcamp</div>
+            <div class="cert-back-issuer">DevTown · MLSA &amp; GDSC KIIT Chapter</div>
+            <div class="cert-back-meta">
+              <span class="cert-back-year">2023</span>
+              <a href="https://cert.devtown.in.tech/verify/Z2lpiXu" target="_blank" class="cert-verify">Verify Certificate ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
   <div class="cert-category">
     <div class="cert-category-title">
@@ -1370,223 +1552,90 @@ footer p {
       <span class="cat-label">Research &amp; Academic Skills</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Academic Information Seeking</div>
-          <div class="cert-issuer">University of Copenhagen &amp; Technical University of Denmark · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/NMTNPNAJUM2A" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Project: Writing a Research Paper</div>
-          <div class="cert-issuer">University of California, Irvine · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/PCHJDF3AJ2JG" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Research Design: Inquiry and Discovery</div>
-          <div class="cert-issuer">University of North Texas · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/VVWLA3LMQ4GU" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Academic Information Seeking</div><div class="cert-issuer">University of Copenhagen &amp; TU Denmark · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Academic Information Seeking</div><div class="cert-back-issuer">University of Copenhagen &amp; Technical University of Denmark · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/NMTNPNAJUM2A" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Project: Writing a Research Paper</div><div class="cert-issuer">University of California, Irvine · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Project: Writing a Research Paper</div><div class="cert-back-issuer">University of California, Irvine · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/PCHJDF3AJ2JG" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Research Design: Inquiry and Discovery</div><div class="cert-issuer">University of North Texas · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Research Design: Inquiry and Discovery</div><div class="cert-back-issuer">University of North Texas · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/VVWLA3LMQ4GU" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
       <span class="cat-label">Critical Thinking &amp; Problem Solving</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Solving Problems with Creative and Critical Thinking</div>
-          <div class="cert-issuer">IBM · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/EE44C7YWUJWD" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Mindware: Critical Thinking for the Information Age</div>
-          <div class="cert-issuer">University of Michigan · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/KMS9YEW9K6NC" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Welcome to Game Theory</div>
-          <div class="cert-issuer">The University of Tokyo · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/N4CHXJYFB5Q8" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Solving Problems with Creative &amp; Critical Thinking</div><div class="cert-issuer">IBM · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Solving Problems with Creative and Critical Thinking</div><div class="cert-back-issuer">IBM · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/EE44C7YWUJWD" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Mindware: Critical Thinking for the Information Age</div><div class="cert-issuer">University of Michigan · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Mindware: Critical Thinking for the Information Age</div><div class="cert-back-issuer">University of Michigan · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/KMS9YEW9K6NC" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Welcome to Game Theory</div><div class="cert-issuer">The University of Tokyo · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Welcome to Game Theory</div><div class="cert-back-issuer">The University of Tokyo · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/N4CHXJYFB5Q8" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
       <span class="cat-label">Systems Thinking &amp; Sustainability</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Sustainability through Soccer: Systems-Thinking in Action</div>
-          <div class="cert-issuer">University of Virginia · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/PWG5G5XBYWLS" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Developing a Systems Mindset</div>
-          <div class="cert-issuer">University of Colorado Boulder · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/SZ8SY9XEGD58" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Ecology: Ecosystem Dynamics and Conservation</div>
-          <div class="cert-issuer">American Museum of Natural History · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/8RXVJZNBGKQK" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Sustainability through Soccer: Systems-Thinking in Action</div><div class="cert-issuer">University of Virginia · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Sustainability through Soccer: Systems-Thinking in Action</div><div class="cert-back-issuer">University of Virginia · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/PWG5G5XBYWLS" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Developing a Systems Mindset</div><div class="cert-issuer">University of Colorado Boulder · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Developing a Systems Mindset</div><div class="cert-back-issuer">University of Colorado Boulder · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/SZ8SY9XEGD58" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Ecology: Ecosystem Dynamics and Conservation</div><div class="cert-issuer">American Museum of Natural History · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Ecology: Ecosystem Dynamics and Conservation</div><div class="cert-back-issuer">American Museum of Natural History · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/8RXVJZNBGKQK" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
       <span class="cat-label">Education &amp; Community Engagement</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">What Future for Education?</div>
-          <div class="cert-issuer">University of London &amp; UCL Institute of Education · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/34UBAA4PVD36" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Strategies for Effective Engagement</div>
-          <div class="cert-issuer">University of Colorado Boulder · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/455Q9FTTB4WA" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">What Future for Education?</div><div class="cert-issuer">University of London &amp; UCL · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">What Future for Education?</div><div class="cert-back-issuer">University of London &amp; UCL Institute of Education · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/34UBAA4PVD36" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Strategies for Effective Engagement</div><div class="cert-issuer">University of Colorado Boulder · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Strategies for Effective Engagement</div><div class="cert-back-issuer">University of Colorado Boulder · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/455Q9FTTB4WA" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
       <span class="cat-label">Futures &amp; Foresight</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Ready, Set, Future! Introduction to Futures Thinking</div>
-          <div class="cert-issuer">Institute for the Future · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/3JHVF3DX54QB" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Ready, Set, Future! Introduction to Futures Thinking</div><div class="cert-issuer">Institute for the Future · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Ready, Set, Future! Introduction to Futures Thinking</div><div class="cert-back-issuer">Institute for the Future · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/3JHVF3DX54QB" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
       <span class="cat-label">Entrepreneurship &amp; Innovation</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Building Fintech Startups in Emerging Markets</div>
-          <div class="cert-issuer">University of Cape Town · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/2CRA4NT6SEBM" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">New Product Development for Small Businesses and Start-Ups</div>
-          <div class="cert-issuer">Coursera Project Network</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/JVNTSPGK8Q4V" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Innovation Through Design: Think, Make, Break, Repeat</div>
-          <div class="cert-issuer">University of Sydney · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/RSQSVV2356M6" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Beyond Silicon Valley: Growing Entrepreneurship in Transitioning Economies</div>
-          <div class="cert-issuer">Case Western Reserve University · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/XMETXE5UMTUR" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Strategic Career Self-Management</div>
-          <div class="cert-issuer">State University of New York · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2024</span>
-            <a href="https://coursera.org/verify/S85U3R7L5F69" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Building Fintech Startups in Emerging Markets</div><div class="cert-issuer">University of Cape Town · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Building Fintech Startups in Emerging Markets</div><div class="cert-back-issuer">University of Cape Town · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/2CRA4NT6SEBM" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">New Product Development for Start-Ups</div><div class="cert-issuer">Coursera Project Network</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">New Product Development for Small Businesses and Start-Ups</div><div class="cert-back-issuer">Coursera Project Network</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/JVNTSPGK8Q4V" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Innovation Through Design: Think, Make, Break, Repeat</div><div class="cert-issuer">University of Sydney · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Innovation Through Design: Think, Make, Break, Repeat</div><div class="cert-back-issuer">University of Sydney · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/RSQSVV2356M6" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Beyond Silicon Valley: Entrepreneurship in Transitioning Economies</div><div class="cert-issuer">Case Western Reserve University · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Beyond Silicon Valley: Growing Entrepreneurship in Transitioning Economies</div><div class="cert-back-issuer">Case Western Reserve University · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/XMETXE5UMTUR" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Strategic Career Self-Management</div><div class="cert-issuer">State University of New York · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2024</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Strategic Career Self-Management</div><div class="cert-back-issuer">State University of New York · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2024</span><a href="https://coursera.org/verify/S85U3R7L5F69" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
       <span class="cat-label">Diversity, Equity &amp; Inclusion</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Gender Analytics for Innovation</div>
-          <div class="cert-issuer">University of Toronto · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/A4VSDZJC8CWD" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-name">Queering Identities: LGBTQ+ Sexuality and Gender Identity</div>
-          <div class="cert-issuer">University of Colorado System · Coursera</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <a href="https://coursera.org/verify/FXDNA5Y97PWW" target="_blank" class="cert-verify">Verify &#8599;</a>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Gender Analytics for Innovation</div><div class="cert-issuer">University of Toronto · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Gender Analytics for Innovation</div><div class="cert-back-issuer">University of Toronto · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/A4VSDZJC8CWD" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Queering Identities: LGBTQ+ Sexuality and Gender Identity</div><div class="cert-issuer">University of Colorado System · Coursera</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Queering Identities: LGBTQ+ Sexuality and Gender Identity</div><div class="cert-back-issuer">University of Colorado System · Coursera</div><div class="cert-back-meta"><span class="cert-back-year">2023</span><a href="https://coursera.org/verify/FXDNA5Y97PWW" target="_blank" class="cert-verify">Verify Certificate ↗</a></div></div></div></div>
+    </div>
   </div>
+
   <div class="cert-category">
     <div class="cert-category-title">
       <span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span>
       <span class="cat-label">Leadership &amp; Global Recognition</span>
     </div>
     <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-name">Millennium Fellowship Project Certificate — Africa Jobs SL</div>
-          <div class="cert-issuer">United Nations Academic Impact &amp; Millennium Campus Network (MCN) · Signed by Robert Skinner (UN) &amp; Sam Vaghar (MCN)</div>
-          <div class="cert-meta">
-            <span class="cert-year">2023</span>
-            <span class="cert-verify" style="opacity:0.4;cursor:default;">UN · MCN</span>
-          </div>
-        </div>
-      </div>
+      <div class="cert-card reveal" role="button" tabindex="0"><div class="cert-card-inner"><div class="cert-front"><div class="cert-front-top"><div class="cert-name">Millennium Fellowship Project Certificate</div><div class="cert-issuer">UN Academic Impact &amp; MCN</div></div><div class="cert-front-bottom"><span class="cert-year">2023</span><span class="cert-flip-hint">tap for details →</span></div></div><div class="cert-back"><div class="cert-back-title">Millennium Fellowship Project Certificate — Africa Jobs SL</div><div class="cert-back-issuer">United Nations Academic Impact &amp; Millennium Campus Network · Signed by Robert Skinner (UN) &amp; Sam Vaghar (MCN)</div><div class="cert-back-meta"><span class="cert-back-year">2023 · UN · MCN</span></div></div></div></div>
+    </div>
   </div>
 
 </section>
@@ -1678,6 +1727,19 @@ footer p {
 
 <script>
 (function() {
+
+  /* FLIP CARDS */
+  document.querySelectorAll('.cert-card').forEach(function(card) {
+    function toggle(e) {
+      // Don't flip if clicking a verify link on the back
+      if (e.target.closest('.cert-verify')) return;
+      card.classList.toggle('flipped');
+    }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+    });
+  });
 
   /* BACK TO TOP */
   var btt = document.getElementById('backToTop');
