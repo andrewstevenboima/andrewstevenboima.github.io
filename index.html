@@ -1001,6 +1001,86 @@ footer p {
   text-transform: uppercase;
 }
 
+/* ── RESEARCH ── */
+#research { background: var(--navy); }
+.research-card {
+  max-width: 860px;
+  padding: 2.2rem 2.4rem;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-left: 4px solid var(--gold);
+  background: rgba(255,255,255,0.02);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.research-card:hover { background: rgba(201,168,76,0.04); }
+.research-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+}
+.research-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--gold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  opacity: 0.85;
+}
+.research-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.research-desc {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  margin-bottom: 1.4rem;
+}
+.research-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(201,168,76,0.12);
+}
+.research-meta-item { display: flex; flex-direction: column; gap: 0.15rem; }
+.research-meta-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+.research-meta-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--gray);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.research-frameworks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+.research-framework-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 0.22rem 0.65rem;
+  letter-spacing: 0.06em;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 1.1rem 1.5rem; }
@@ -1032,6 +1112,8 @@ footer p {
     <li><a href="#projects">Work</a></li>
     <li><a href="#ai-products">AI Products</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#certifications">Development</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1048,6 +1130,7 @@ footer p {
   <a href="#projects" class="mobile-nav-link">Work</a>
   <a href="#ai-products" class="mobile-nav-link">AI Products</a>
   <a href="#skills" class="mobile-nav-link">Skills</a>
+  <a href="#research" class="mobile-nav-link">Research</a>
   <a href="#certifications" class="mobile-nav-link">Development</a>
   <a href="#contact" class="mobile-nav-link">Contact</a>
 </div>
@@ -1557,6 +1640,46 @@ footer p {
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- RESEARCH -->
+<section id="research">
+  <p class="section-label reveal">Academic Research</p>
+  <h2 class="section-title reveal">Undergraduate <em>Capstone</em></h2>
+  <div class="research-card reveal">
+    <div class="research-type">Mixed-Methods Study · EdTech · AI Evaluation</div>
+    <div class="research-title">Evaluating the Student Companion AI Chatbot: Adoption, Satisfaction &amp; Continued Use Among University Students</div>
+    <div class="research-desc">
+      Conducted a mixed-methods evaluation of the Student Companion AI chatbot as part of my undergraduate capstone at the African Leadership University. The study examined student adoption, satisfaction, and intention to continue using the platform, drawing on two complementary theoretical frameworks — the <strong style="color:var(--gold);font-weight:500;">Unified Theory of Acceptance and Use of Technology (UTAUT)</strong> and the <strong style="color:var(--gold);font-weight:500;">Expectation-Confirmation Model (ECM)</strong>. Quantitative data was collected via a structured survey (n=104), with qualitative depth added through semi-structured interviews (n=10). Supervised by <strong style="color:var(--cream);font-weight:500;">Emmanuel Ekosse</strong>.
+    </div>
+    <div class="research-frameworks">
+      <span class="research-framework-tag">UTAUT</span>
+      <span class="research-framework-tag">ECM</span>
+      <span class="research-framework-tag">Mixed Methods</span>
+      <span class="research-framework-tag">EdTech Evaluation</span>
+      <span class="research-framework-tag">AI Chatbot</span>
+      <span class="research-framework-tag">Higher Education</span>
+    </div>
+    <div class="research-meta">
+      <div class="research-meta-item">
+        <span class="research-meta-val">104</span>
+        <span class="research-meta-label">Survey Respondents</span>
+      </div>
+      <div class="research-meta-item">
+        <span class="research-meta-val">10</span>
+        <span class="research-meta-label">In-depth Interviews</span>
+      </div>
+      <div class="research-meta-item">
+        <span class="research-meta-val">2026</span>
+        <span class="research-meta-label">Year</span>
+      </div>
+      <div class="research-meta-item">
+        <span class="research-meta-val">ALU</span>
+        <span class="research-meta-label">Institution</span>
+      </div>
+    </div>
   </div>
 </section>
 
