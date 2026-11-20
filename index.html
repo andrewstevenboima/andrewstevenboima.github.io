@@ -3,170 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andrew Steven Boima — Professional Development & Program Operations</title>
-<meta name="description" content="Andrew Steven Boima — Professional Development Associate at the ALU School of Wildlife Conservation and founder of Student Companion AI. 8+ years in program operations, education research and EdTech. Founder of Student Companion AI.">
-<meta property="og:title" content="Andrew Steven Boima — Program Coordinator & AI Product Builder">
-<meta property="og:description" content="8+ years in program operations, education research and EdTech across Africa. Founder of Student Companion AI.">
-<meta property="og:image" content="https://andrewstevenboima.github.io/andrew-boima.jpg">
+<title>Andrew Steven Boima | Professional Development &amp; Program Operations</title>
+<meta name="description" content="Andrew Steven Boima, Professional Development Associate at the ALU School of Wildlife Conservation and founder of Student Companion AI. 8+ years in program operations, education research and EdTech.">
+<meta property="og:title" content="Andrew Steven Boima">
+<meta property="og:description" content="Professional Development Associate, ALU School of Wildlife Conservation. Founder of Student Companion AI.">
+<meta property="og:image" content="https://andrewstevenboima.github.io/banner.jpg">
 <meta property="og:url" content="https://andrewstevenboima.github.io">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --ink: #111827;
-  --body: #374151;
-  --muted: #6b7280;
-  --line: #e5e7eb;
-  --accent: #1e3a8a;
-  --bg: #ffffff;
-  --soft: #f9fafb;
+  --page: #f4f2ee;
+  --card: #ffffff;
+  --ink: #1d1d1f;
+  --body: #3c3c3f;
+  --muted: #6e6e73;
+  --line: #e3e1dc;
+  --accent: #b3121b;
+  --link: #0a66c2;
 }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg);
+  font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--page);
   color: var(--body);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
-a { color: var(--accent); text-decoration: none; }
+a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
-.wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+img { display: block; max-width: 100%; }
+p + p { margin-top: 10px; }
+.print-only { display: none; }
 
 /* Top bar */
-.topbar { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
-.topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
-.brand { font-weight: 600; color: var(--ink); letter-spacing: .02em; }
-.nav { display: flex; gap: 20px; font-size: 14px; }
-.nav a { color: var(--muted); }
+.topbar { position: sticky; top: 0; z-index: 20; background: var(--card); border-bottom: 1px solid var(--line); }
+.topbar-inner { max-width: 880px; margin: 0 auto; padding: 0 16px; height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-weight: 700; color: var(--ink); white-space: nowrap; }
+.brand:hover { text-decoration: none; }
+.nav { display: flex; gap: 18px; font-size: 15px; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { color: var(--muted); white-space: nowrap; }
 .nav a:hover { color: var(--ink); text-decoration: none; }
 
-/* Header */
-header.hero { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
-.hero-grid { display: flex; gap: 28px; align-items: center; }
-.photo { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; border: 1px solid var(--line); }
-h1 { font-size: 34px; line-height: 1.15; color: var(--ink); font-weight: 700; letter-spacing: -.02em; }
-.role { font-size: 17px; color: var(--body); margin-top: 6px; }
-.contact { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 14px; color: var(--muted); }
-.contact a { color: var(--muted); }
-.contact a:hover { color: var(--accent); }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.btn { display: inline-block; padding: 9px 18px; border-radius: 6px; font-size: 14px; font-weight: 500; border: 1px solid var(--accent); }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-secondary { color: var(--accent); background: #fff; }
-.btn:hover { text-decoration: none; opacity: .9; }
+/* Layout */
+main { max-width: 880px; margin: 0 auto; padding: 20px 16px 40px; display: flex; flex-direction: column; gap: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.card-body { padding: 24px; }
+.card h2 { font-size: 21px; color: var(--ink); font-weight: 700; margin-bottom: 14px; }
 
-/* Sections */
-section { padding: 40px 0; border-bottom: 1px solid var(--line); }
-section:last-of-type { border-bottom: 0; }
-h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 20px; }
-h3 { font-size: 16px; font-weight: 600; color: var(--ink); }
-p + p { margin-top: 12px; }
+/* Intro card */
+.banner { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #d4d1cc; }
+.intro { padding: 20px 24px 24px; }
+h1 { font-size: 28px; line-height: 1.2; color: var(--ink); font-weight: 700; }
+.headline { font-size: 17px; color: var(--body); margin-top: 4px; }
+.meta { font-size: 15px; color: var(--muted); margin-top: 6px; }
+.meta a { font-weight: 600; }
+.current { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; font-size: 15px; color: var(--ink); font-weight: 600; }
+.current span { display: flex; align-items: center; gap: 8px; }
+.current .logo { width: 28px; height: 28px; border-radius: 4px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.btn { display: inline-block; padding: 7px 18px; border-radius: 999px; font-size: 15px; font-weight: 600; border: 1px solid var(--link); }
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--link); color: #fff; }
+.btn-primary:hover { background: #004182; }
+.btn-secondary { color: var(--link); background: #fff; }
+.btn-secondary:hover { background: #eef3f8; }
 
-.highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
-.stat { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
-.stat b { display: block; font-size: 22px; color: var(--ink); font-weight: 700; }
-.stat span { font-size: 13px; color: var(--muted); }
+/* Entries with logos */
+.item { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.card h2 + .item { border-top: 0; padding-top: 0; }
+.logo { width: 48px; height: 48px; flex-shrink: 0; border-radius: 6px; object-fit: contain; background: #fff; border: 1px solid var(--line); padding: 4px; }
+.mono { display: flex; align-items: center; justify-content: center; padding: 0; font-weight: 700; font-size: 15px; color: #fff; letter-spacing: .02em; border: 0; }
+.item-text { min-width: 0; flex: 1; }
+.item h3 { font-size: 16px; color: var(--ink); font-weight: 700; line-height: 1.35; }
+.org { font-size: 15px; color: var(--ink); }
+.when { font-size: 14px; color: var(--muted); }
+.item ul { margin: 8px 0 0 18px; font-size: 15px; }
+.item li { margin-top: 3px; }
+.item p { font-size: 15px; margin-top: 6px; }
+.small-item { padding: 10px 0; }
+.small-item .logo { width: 40px; height: 40px; }
 
-.entry { margin-bottom: 26px; }
-.entry:last-child { margin-bottom: 0; }
-.entry-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
-.date { font-size: 13px; color: var(--muted); white-space: nowrap; }
-.org { font-size: 14px; color: var(--muted); margin-top: 2px; }
-.entry ul { margin: 10px 0 0 18px; }
-.entry li { margin-top: 5px; }
-.entry li::marker { color: var(--muted); }
-.entry p.desc { margin-top: 8px; }
+.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.project { border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.project h3 { font-size: 16px; color: var(--ink); }
+.project .when { margin-top: 1px; }
+.project p { font-size: 15px; margin-top: 6px; }
+.project a.more { display: inline-block; margin-top: 8px; font-size: 15px; font-weight: 600; }
 
-.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.project { border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
-.project h3 { display: flex; justify-content: space-between; gap: 8px; }
-.project h3 a { font-size: 13px; font-weight: 500; white-space: nowrap; }
-.project .tag { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.project p { font-size: 14px; margin-top: 8px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill { font-size: 15px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: #fafaf9; }
 
-.skills { display: grid; grid-template-columns: 180px 1fr; gap: 10px 20px; }
-.skills dt { font-weight: 600; color: var(--ink); font-size: 14px; }
-.skills dd { font-size: 14px; }
+details { margin-top: 6px; }
+summary { cursor: pointer; font-size: 15px; font-weight: 600; color: var(--muted); padding: 10px 0 0; border-top: 1px solid var(--line); list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary:hover { color: var(--ink); }
+details[open] summary { margin-bottom: 4px; }
 
-.certs { list-style: none; }
-.certs li { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
-.certs li:last-child { border-bottom: 0; }
-.certs .issuer { color: var(--muted); }
-.certs .meta { white-space: nowrap; color: var(--muted); font-size: 13px; }
-details { margin-top: 14px; }
-summary { cursor: pointer; font-size: 14px; color: var(--accent); font-weight: 500; }
-details .certs { margin-top: 10px; }
+blockquote { padding: 14px 0; border-top: 1px solid var(--line); }
+.card h2 + blockquote { border-top: 0; padding-top: 0; }
+blockquote p { font-size: 15px; }
+blockquote footer { margin-top: 8px; font-size: 14px; color: var(--muted); }
+blockquote footer b { color: var(--ink); }
 
-blockquote { border-left: 3px solid var(--line); padding: 2px 0 2px 18px; margin-bottom: 22px; }
-blockquote:last-child { margin-bottom: 0; }
-blockquote p { font-style: italic; }
-blockquote cite { display: block; font-style: normal; font-size: 13px; color: var(--muted); margin-top: 8px; }
-blockquote cite b { color: var(--ink); font-weight: 600; }
+.contact-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 15px; }
+.contact-list div span { display: block; font-size: 13px; color: var(--muted); }
 
-footer { padding: 28px 0 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.site-footer { text-align: center; font-size: 13px; color: var(--muted); padding: 8px 16px 32px; }
 
-@media (max-width: 720px) {
-  .nav { display: none; }
-  .hero-grid { flex-direction: column; align-items: flex-start; }
-  h1 { font-size: 28px; }
-  .highlights { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 640px) {
+  .card-body { padding: 18px 16px; }
+  .intro { padding: 16px 16px 20px; }
+  h1 { font-size: 24px; }
+  .headline { font-size: 16px; }
   .projects { grid-template-columns: 1fr; }
-  .skills { grid-template-columns: 1fr; gap: 2px; }
-  .skills dd { margin-bottom: 10px; }
-  .entry-head { flex-direction: column; gap: 0; }
-  .certs li { flex-direction: column; gap: 0; }
+  .contact-list { grid-template-columns: 1fr; }
+  .logo { width: 42px; height: 42px; }
+  .brand { display: none; }
+  .topbar-inner { justify-content: flex-start; }
 }
 
 @media print {
-  @page { size: A4; margin: 10mm 13mm; }
-  body { font-size: 9pt; line-height: 1.35; }
-  .projects { grid-template-columns: 1fr 1fr 1fr; }
-  .project h3 a { display: none; }
-  .skills { grid-template-columns: 130px 1fr; gap: 3px 14px; }
-  .skills dt, .skills dd { font-size: 9pt; }
-  .topbar, .actions, .no-print, details, footer { display: none !important; }
-  .wrap { max-width: none; padding: 0; }
-  header.hero { padding: 0 0 12px; }
-  .photo { width: 80px; height: 80px; }
-  h1 { font-size: 22pt; }
-  .role { font-size: 11.5pt; margin-top: 2px; }
-  .contact { font-size: 9pt; margin-top: 6px; }
-  section { padding: 7px 0; break-inside: auto; }
-  h2 { margin-bottom: 8px; font-size: 9.5pt; break-after: avoid; }
-  #projects { break-before: page; }
-  h3 { font-size: 10.5pt; }
-  .entry { margin-bottom: 7px; break-inside: avoid; }
-  .entry ul { margin-top: 4px; }
-  .entry li { margin-top: 2px; }
-  .highlights { display: none; }
-  .projects { gap: 8px; }
-  .project { padding: 9px 11px; break-inside: avoid; }
-  .project p { display: none; }
-  .project { padding: 6px 10px; }
-  .certs { columns: 2; column-gap: 24px; }
-  .certs li { break-inside: avoid; }
-  #leadership ul { display: none; }
-  .entry .desc { margin-top: 3px; }
-  .certs li { padding: 3px 0; font-size: 9pt; }
-  .date, .org, .stat span, .certs .meta { font-size: 9pt; }
+  @page { size: A4; margin: 11mm 13mm; }
+  body { background: #fff; font-size: 9.5pt; line-height: 1.4; }
+  .topbar, .banner, .actions, .no-print, details, .site-footer, .logo, .current { display: none !important; }
+  main { max-width: none; padding: 0; gap: 0; }
+  .card { border: 0; border-radius: 0; border-bottom: 1px solid #ddd; }
+  .card-body, .intro { padding: 8px 0; }
+  h1 { font-size: 20pt; }
+  .headline { font-size: 11pt; }
+  .meta { font-size: 9pt; }
+  .card h2 { font-size: 11pt; margin-bottom: 4px; color: var(--accent); break-after: avoid; }
+  .item { padding: 4px 0; border-top: 0; gap: 0; break-inside: avoid; }
+  .item h3, .project h3 { font-size: 10pt; }
+  .org, .when, .item ul, .item p { font-size: 9pt; }
+  .item ul { margin-top: 2px; }
+  .item li { margin-top: 1px; }
+  .projects { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .project { padding: 6px 8px; break-inside: avoid; }
+  .project p, .project a.more { display: none; }
+  .skills { gap: 4px; }
+  .skill { font-size: 8.5pt; padding: 1px 8px; }
   a { color: inherit; }
+  .print-only { display: block; }
+  .item:not(.small-item) .org { display: inline; }
+  .item:not(.small-item) .org + .when { display: inline; }
+  .item:not(.small-item) .org + .when::before { content: ' · '; }
+  #awards p, #leadership p { display: none; }
+  body { font-size: 9pt; }
+  .meta:not(.print-only) { display: none; }
+  .small-item { padding: 1px 0; }
+  .small-item .item-text { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; }
+  .small-item .org::before { content: '· '; }
+  .small-item .when a { display: none; }
+  #certifications .when { font-size: 9pt; }
+  #certifications .when::before { content: '· '; }
+  #about p { font-size: 9.5pt; }
 }
 </style>
 </head>
 <body>
 
-<nav class="topbar" aria-label="Main">
-  <div class="wrap">
+<nav class="topbar" aria-label="Sections">
+  <div class="topbar-inner">
     <a href="#top" class="brand">Andrew Steven Boima</a>
     <div class="nav">
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
@@ -177,292 +186,403 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 </nav>
 
 <main id="top">
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <img class="photo" src="andrew-boima.jpg" alt="Andrew Steven Boima">
-      <div>
-        <h1>Andrew Steven Boima</h1>
-        <p class="role">Professional Development · Program Operations · AI Product Builder</p>
-        <div class="contact">
-          <span>Kigali, Rwanda</span>
-          <a href="mailto:a.boima@studentcompanionai.rw">a.boima@studentcompanionai.rw</a>
-          <a href="tel:+250791920747">+250 791 920 747</a>
-          <a href="https://www.linkedin.com/in/andrew-steven-boima-98654556" target="_blank" rel="noopener">LinkedIn</a>
+
+  <!-- Intro -->
+  <section class="card">
+    <picture>
+      <source srcset="banner.webp" type="image/webp">
+      <img class="banner" src="banner.jpg" alt="Andrew Steven Boima. There is no AI without you. Student Companion AI.">
+    </picture>
+    <div class="intro">
+      <h1>Andrew Steven Boima</h1>
+      <p class="headline">Professional Development Associate at the ALU School of Wildlife Conservation · Founder, Student Companion AI</p>
+      <p class="meta">Kigali, Rwanda · <a href="#contact">Contact info</a></p>
+      <p class="meta print-only">a.boima@studentcompanionai.rw · +250 791 920 747 · +232 77 638 0087 · andrewstevenboima.github.io · linkedin.com/in/andrew-steven-boima-98654556</p>
+      <div class="current">
+        <span><img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo"> African Leadership University</span>
+        <span><img class="logo" src="https://www.google.com/s2/favicons?domain=studentcompanionai.rw&amp;sz=128" alt="Student Companion AI logo"> Student Companion AI</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="andrew-boima-cv.pdf" download>Download CV</a>
+        <a class="btn btn-secondary" href="mailto:a.boima@studentcompanionai.rw">Email me</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/andrew-steven-boima-98654556" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="card" id="about">
+    <div class="card-body">
+      <h2>About</h2>
+      <p>I have spent more than eight years running education and learning programs in Sierra Leone, Rwanda and across Africa. At ALU I coordinated four cohorts of the Public Sector Fellowship (141 fellows from 17+ countries) and Togo's Digital Ambassador Program. I now work on professional development courses for conservation leaders at the ALU School of Wildlife Conservation.</p>
+      <p>Outside my day job I build Student Companion AI, a support platform for university students. I graduated from ALU in July 2026 with First Class Honours in Entrepreneurial Leadership.</p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="card" id="experience">
+    <div class="card-body">
+      <h2>Experience</h2>
+
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>Professional Development Associate</h3>
+          <div class="org">ALU School of Wildlife Conservation</div>
+          <div class="when">Oct 2026 – Present · Kigali, Rwanda (remote)</div>
+          <ul>
+            <li>Support the Manager of Professional Development in designing and running courses for African conservation managers.</li>
+            <li>Coordinate course schedules, participant recruitment, payments and certificates with the operations team.</li>
+            <li>Help market and sell courses, and run them online, in person and in hybrid format.</li>
+            <li>Build systems to track participant progress and keep learners engaged through to completion.</li>
+            <li>Support School events, including the annual Business of Conservation Conference.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="logo mono" style="background:#2f6b4f" aria-hidden="true">R</span>
+        <div class="item-text">
+          <h3>Programs &amp; Operations Associate</h3>
+          <div class="org">RERWA Co. Ltd</div>
+          <div class="when">Jul 2026 – Sep 2026 · Kigali, Rwanda</div>
+          <ul>
+            <li>Reported to the Founder &amp; CEO across programs, operations, communications, business development and partnerships.</li>
+            <li>Launched rerwacollective.org and set up Google Analytics and Search Console.</li>
+            <li>Wrote engineering vendor briefs and supported technology partner discussions.</li>
+            <li>Developed key informant interview guides for program design research.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>Curriculum Agent</h3>
+          <div class="org">Center for Re-Imagined Africa, African Leadership University</div>
+          <div class="when">Aug 2025 – Jun 2026 · Kigali, Rwanda</div>
+          <ul>
+            <li>Coordinated four cohorts of the Public Sector Fellowship: 141 fellows from 17+ African countries.</li>
+            <li>Ran learning and experience coordination for Togo's Digital Ambassador Program: 80 ambassadors from 26 ministries across three time zones.</li>
+            <li>Coordinated the CRA Executive Coaching Program (50 coaches, 11 countries) and matched 40+ ALU students with public sector leaders.</li>
+            <li>Kept performance dashboards and turned participant feedback into program improvements.</li>
+            <li>Managed Canvas LMS courses and supported learners with technical issues.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="logo mono" style="background:#5b4a8b" aria-hidden="true">RI</span>
+        <div class="item-text">
+          <h3>Tech &amp; Logistics Support Consultant</h3>
+          <div class="org">Rising International Education and Learning Limited</div>
+          <div class="when">Jan 2023 – Apr 2023 · Rwanda</div>
+          <ul>
+            <li>Provided technical and logistics support for the Elimu-Soko Educational Project.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=risingacademies.com&amp;sz=128" alt="Rising Academy Network logo" loading="lazy">
+        <div class="item-text">
+          <h3>Technology / Operations Officer</h3>
+          <div class="org">Rising Academy Network</div>
+          <div class="when">Jan 2018 – Aug 2022 · Freetown, Sierra Leone</div>
+          <ul>
+            <li>Managed hundreds of learning devices across several school sites.</li>
+            <li>Supported HR with staff onboarding, logistics and the staff phone network (CUG).</li>
+            <li>Produced graphics and multimedia for school communications.</li>
+            <li>Tutored 1,000+ students in computer studies and ran the Girls Coding Club.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=ox.ac.uk&amp;sz=128" alt="University of Oxford logo" loading="lazy">
+        <div class="item-text">
+          <h3>Research Assistant</h3>
+          <div class="org">University of Oxford education research project</div>
+          <div class="when">Jan 2016 – Sep 2017 · Freetown, Sierra Leone</div>
+          <ul>
+            <li>Led five enumerators through 2,000+ tablet-based student assessments.</li>
+            <li>Managed data collection, translation and quality checks.</li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="actions">
-      <a class="btn btn-primary" href="andrew-boima-cv.pdf" download>Download CV (PDF)</a>
-      <a class="btn btn-secondary" href="mailto:a.boima@studentcompanionai.rw">Get in touch</a>
-    </div>
-  </div>
-</header>
+  </section>
 
-<section id="summary">
-  <div class="wrap">
-    <h2>Profile</h2>
-    <p>First Class Honours graduate and program professional with 8+ years of experience in program operations, professional development, education research and digital learning across Africa. I coordinate multi-stakeholder programs — from 141 public sector fellows across 17+ countries to professional development courses for conservation leaders — and build AI tools for students, including Student Companion AI.</p>
-    <div class="highlights">
-      <div class="stat"><b>141</b><span>Public sector fellows coordinated</span></div>
-      <div class="stat"><b>17+</b><span>African countries</span></div>
-      <div class="stat"><b>8+</b><span>Years of experience</span></div>
-      <div class="stat"><b>1st</b><span>Class Honours, ALU</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <h2>Experience</h2>
-
-    <div class="entry">
-      <div class="entry-head"><h3>Professional Development Associate</h3><span class="date">Oct 2026 – Present</span></div>
-      <div class="org">School of Wildlife Conservation, African Leadership University · Kigali, Rwanda (remote)</div>
-      <ul>
-        <li>Support the Manager of Professional Development in designing and delivering professional development courses for African conservation managers.</li>
-        <li>Coordinate course scheduling, participant recruitment, payments and certification with the operations team.</li>
-        <li>Support the marketing and sales of courses and the delivery of remote, in-person and hybrid programs.</li>
-        <li>Build systems to track participant progress and improve engagement and retention.</li>
-        <li>Support School events, including the annual Business of Conservation Conference.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head"><h3>Programs &amp; Operations Associate</h3><span class="date">Jul 2026 – Sep 2026</span></div>
-      <div class="org">RERWA Co. Ltd · Kigali, Rwanda</div>
-      <ul>
-        <li>Reported to the Founder &amp; CEO across programs, operations, communications, business development and stakeholder engagement.</li>
-        <li>Launched the organisation’s website (rerwacollective.org), set up Google Analytics and Search Console, and produced brand-aligned content.</li>
-        <li>Prepared engineering vendor briefs and supported technology-partner discussions for platform development.</li>
-        <li>Developed key informant interview guides to inform program design and stakeholder research.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head"><h3>Curriculum Agent</h3><span class="date">Aug 2025 – Jun 2026</span></div>
-      <div class="org">Center for Re-Imagined Africa (CRA), African Leadership University · Kigali, Rwanda</div>
-      <ul>
-        <li>Coordinated four cohorts of the Public Sector Fellowship — 141 fellows from 17+ African countries — covering scheduling, LMS resources, faculty engagement and participant tracking.</li>
-        <li>Led learning and experience coordination for Togo’s Digital Ambassador Program: 80 ambassadors from 26 ministries across three time zones.</li>
-        <li>Coordinated the CRA Executive Coaching Program (50 coaches, 11 countries, 72% female) and the ALU Undergraduate Coaching Program, matching 40+ students with public sector leaders.</li>
-        <li>Maintain performance dashboards and synthesise participant feedback to inform curriculum and program improvements.</li>
-        <li>Administer Canvas LMS environments and provide technical support to learners.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head"><h3>Tech &amp; Logistics Support Consultant</h3><span class="date">Jan 2023 – Apr 2023</span></div>
-      <div class="org">Rising International Education and Learning Limited · Rwanda</div>
-      <ul>
-        <li>Provided technical and logistics support for the Elimu-Soko Educational Project, keeping program operations and digital infrastructure running reliably.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head"><h3>Technology / Operations Officer</h3><span class="date">Jan 2018 – Aug 2022</span></div>
-      <div class="org">Rising Academy Network · Freetown, Sierra Leone</div>
-      <ul>
-        <li>Managed hundreds of digital learning devices across multiple school sites.</li>
-        <li>Supported HR with staff onboarding, logistics and CUG (closed user group) management.</li>
-        <li>Produced graphics and multimedia for institutional communications.</li>
-        <li>Tutored 1,000+ students in computer studies and coordinated the Girls Coding Club.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head"><h3>Research Assistant</h3><span class="date">Jan 2016 – Sep 2017</span></div>
-      <div class="org">University of Oxford education research project · Freetown, Sierra Leone</div>
-      <ul>
-        <li>Led a team of five enumerators delivering 2,000+ tablet-based student assessments.</li>
-        <li>Managed data collection, translation and quality control to produce audit-ready research data.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <h2>Products &amp; Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Student Companion AI <a href="https://studentcompanionai.rw" target="_blank" rel="noopener">Visit ↗</a></h3>
-        <div class="tag">Founder &amp; Project Lead · Since Aug 2025</div>
-        <p>An AI-powered ecosystem of student support services for African universities, giving students one place for academic and administrative help. Built on the Anthropic Claude API; available on web and WhatsApp.</p>
-      </div>
-      <div class="project">
-        <h3>Africa Jobs MRU <a href="https://andrewstevenboima.github.io/africa-jobs-mru-v2/" target="_blank" rel="noopener">Visit ↗</a></h3>
-        <div class="tag">Founder · Youth employment</div>
-        <p>Youth employment platform for Sierra Leone, Liberia, Guinea and Côte d’Ivoire, with AI job matching, job maps and a resume analyser.</p>
-      </div>
-      <div class="project">
-        <h3>SCA Opportunities <a href="https://andrewstevenboima.github.io/sca-opportunities" target="_blank" rel="noopener">Visit ↗</a></h3>
-        <div class="tag">Curated directory</div>
-        <p>Free, filterable directory of 45+ internships, fellowships, scholarships and jobs for African undergraduates.</p>
-      </div>
-      <div class="project">
-        <h3>Urumuri Digital Inclusion <a href="https://andrewstevenboima.github.io/urumuri-digital-inclusion/" target="_blank" rel="noopener">Visit ↗</a></h3>
-        <div class="tag">Inclusive education</div>
-        <p>Bilingual learning platform for neurodiverse learners in Rwanda, with Kinyarwanda lessons and teacher dashboards.</p>
-      </div>
-      <div class="project">
-        <h3>Africa54 <a href="https://andrewstevenboima.github.io/africa54/" target="_blank" rel="noopener">Visit ↗</a></h3>
-        <div class="tag">Classroom game</div>
-        <p>African geography quiz covering 54 countries, with solo play and teacher-hosted classroom rounds.</p>
-      </div>
-      <div class="project">
-        <h3>SCA Gym Tutor <a href="https://andrewstevenboima.github.io/sca-gym-tutor/" target="_blank" rel="noopener">Visit ↗</a></h3>
-        <div class="tag">Wellness app</div>
-        <p>Offline-capable workout companion with 56 exercises, including African dance styles, and custom routines.</p>
+  <!-- Projects -->
+  <section class="card" id="projects">
+    <div class="card-body">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Student Companion AI</h3>
+          <div class="when">Founder &amp; Project Lead · Since Aug 2025</div>
+          <p>A support platform that gives university students one place for academic and administrative help. Runs on the web and WhatsApp.</p>
+          <a class="more" href="https://studentcompanionai.rw" target="_blank" rel="noopener">studentcompanionai.rw</a>
+        </div>
+        <div class="project">
+          <h3>Africa Jobs MRU</h3>
+          <div class="when">Founder</div>
+          <p>Job matching and a resume checker for young people in Sierra Leone, Liberia, Guinea and Côte d'Ivoire.</p>
+          <a class="more" href="https://andrewstevenboima.github.io/africa-jobs-mru-v2/" target="_blank" rel="noopener">View project</a>
+        </div>
+        <div class="project">
+          <h3>SCA Opportunities</h3>
+          <div class="when">Opportunity directory</div>
+          <p>A free list of 45+ internships, fellowships, scholarships and jobs for African undergraduates.</p>
+          <a class="more" href="https://andrewstevenboima.github.io/sca-opportunities" target="_blank" rel="noopener">View project</a>
+        </div>
+        <div class="project">
+          <h3>Urumuri Digital Inclusion</h3>
+          <div class="when">Inclusive education</div>
+          <p>Lessons in Kinyarwanda for neurodiverse learners in Rwanda, with progress dashboards for teachers.</p>
+          <a class="more" href="https://andrewstevenboima.github.io/urumuri-digital-inclusion/" target="_blank" rel="noopener">View project</a>
+        </div>
+        <div class="project">
+          <h3>Africa54</h3>
+          <div class="when">Classroom game</div>
+          <p>A geography quiz on Africa's 54 countries that teachers can run live in class.</p>
+          <a class="more" href="https://andrewstevenboima.github.io/africa54/" target="_blank" rel="noopener">View project</a>
+        </div>
+        <div class="project">
+          <h3>SCA Gym Tutor</h3>
+          <div class="when">Fitness app</div>
+          <p>56 exercises, including African dance workouts, that work offline.</p>
+          <a class="more" href="https://andrewstevenboima.github.io/sca-gym-tutor/" target="_blank" rel="noopener">View project</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="education">
-  <div class="wrap">
-    <h2>Education</h2>
-    <div class="entry">
-      <div class="entry-head"><h3>BSc (Hons) Entrepreneurial Leadership — First Class Honours</h3><span class="date">2022 – 2026</span></div>
-      <div class="org">African Leadership University · Kigali, Rwanda · Graduated 17 July 2026</div>
-      <p class="desc"><b>Capstone:</b> Mixed-methods evaluation of the Student Companion AI chatbot — adoption, satisfaction and continued use (UTAUT and ECM frameworks; survey n=104, interviews n=10). Supervised by Emmanuel Ekosse.</p>
+  <!-- Education -->
+  <section class="card" id="education">
+    <div class="card-body">
+      <h2>Education</h2>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>African Leadership University</h3>
+          <div class="org">BSc (Hons) Entrepreneurial Leadership, First Class Honours</div>
+          <div class="when">2022 – 2026 · Graduated 17 July 2026</div>
+          <p>Capstone: a mixed-methods study of how students adopt and keep using the Student Companion AI chatbot (survey of 104 students, 10 interviews). Supervised by Emmanuel Ekosse.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="logo mono" style="background:#1f4e8c" aria-hidden="true">BC</span>
+        <div class="item-text">
+          <h3>BlueCrest College N.I.I.T.</h3>
+          <div class="org">Honors Diploma in Information Technology</div>
+          <div class="when">2019 – 2021 · Freetown, Sierra Leone</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="logo mono" style="background:#8a5a1f" aria-hidden="true">LB</span>
+        <div class="item-text">
+          <h3>LICCSAL Business College</h3>
+          <div class="org">Diploma in Business Administration</div>
+          <div class="when">2015 · Freetown, Sierra Leone</div>
+        </div>
+      </div>
     </div>
-    <div class="entry">
-      <div class="entry-head"><h3>Honors Diploma in Information Technology</h3><span class="date">2019 – 2021</span></div>
-      <div class="org">BlueCrest College N.I.I.T. · Freetown, Sierra Leone</div>
-    </div>
-    <div class="entry">
-      <div class="entry-head"><h3>Diploma in Business Administration</h3><span class="date">2015</span></div>
-      <div class="org">LICCSAL Business College · Freetown, Sierra Leone</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="awards">
-  <div class="wrap">
-    <h2>Honours &amp; Awards</h2>
-    <div class="entry">
-      <div class="entry-head"><h3>Africa’s Opportunity Award</h3><span class="date">Jul 2026</span></div>
-      <div class="org">ALU Graduation Awards — awarded to the graduate whose passion for the continent resonates across the ALU community</div>
+  <!-- Honours -->
+  <section class="card" id="awards">
+    <div class="card-body">
+      <h2>Honours &amp; awards</h2>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>Africa's Opportunity Award</h3>
+          <div class="when">ALU Graduation Awards · Jul 2026</div>
+          <p>Given to the graduate whose passion for the continent resonates across the ALU community.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>Resident Genius Award</h3>
+          <div class="when">ALU 2026 Awards</div>
+          <p>For depth of knowledge and consistently going the extra mile.</p>
+        </div>
+      </div>
     </div>
-    <div class="entry">
-      <div class="entry-head"><h3>Resident Genius Award</h3><span class="date">2026</span></div>
-      <div class="org">ALU 2026 Awards — for depth of knowledge and consistently going the extra mile</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="leadership">
-  <div class="wrap">
-    <h2>Leadership &amp; Service</h2>
-    <div class="entry">
-      <div class="entry-head"><h3>Mentor — First Year Compass, Cohort 2</h3><span class="date">2026</span></div>
-      <div class="org">African Leadership University · Kigali, Rwanda</div>
+  <!-- Volunteering -->
+  <section class="card" id="leadership">
+    <div class="card-body">
+      <h2>Leadership &amp; volunteering</h2>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>Mentor, First Year Compass (Cohort 2)</h3>
+          <div class="org">African Leadership University</div>
+          <div class="when">2026</div>
+        </div>
+      </div>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=un.org&amp;sz=128" alt="United Nations logo" loading="lazy">
+        <div class="item-text">
+          <h3>UN Millennium Fellow</h3>
+          <div class="org">UN Academic Impact &amp; Millennium Campus Network</div>
+          <div class="when">Aug 2023 – Dec 2023 · Selected from 44,000+ applicants</div>
+          <p>Started Africa Jobs Sierra Leone to connect young Sierra Leoneans with jobs and training.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=unep.org&amp;sz=128" alt="UNEP logo" loading="lazy">
+        <div class="item-text">
+          <h3>Online Volunteer, Gender, Youth &amp; Climate</h3>
+          <div class="org">UN Environment Programme (UNEP) Africa</div>
+          <div class="when">Jan 2023 – Mar 2023</div>
+        </div>
+      </div>
+      <div class="item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alueducation.com&amp;sz=128" alt="African Leadership University logo" loading="lazy">
+        <div class="item-text">
+          <h3>Orientation Facilitator and E-Lab Group Leader</h3>
+          <div class="org">African Leadership University</div>
+          <div class="when">2022 – 2023</div>
+        </div>
+      </div>
     </div>
-    <div class="entry">
-      <div class="entry-head"><h3>UN Millennium Fellow</h3><span class="date">Aug – Dec 2023</span></div>
-      <div class="org">UN Academic Impact &amp; Millennium Campus Network · Selected from 44,000+ applicants</div>
-      <ul><li>Led a campus social impact initiative that founded Africa Jobs Sierra Leone, connecting young Sierra Leoneans to jobs and skills.</li></ul>
-    </div>
-    <div class="entry">
-      <div class="entry-head"><h3>Online Volunteer — Gender, Youth &amp; Climate</h3><span class="date">Jan – Mar 2023</span></div>
-      <div class="org">UN Environment Programme (UNEP) Africa · UN Online Volunteering</div>
-    </div>
-    <div class="entry">
-      <div class="entry-head"><h3>Orientation Facilitator &amp; E-Lab Group Leader</h3><span class="date">2022 – 2023</span></div>
-      <div class="org">African Leadership University · Kigali, Rwanda</div>
-      <ul><li>Facilitated orientation for 300+ incoming students; led a student research and project team.</li></ul>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="skills">
-  <div class="wrap">
-    <h2>Skills</h2>
-    <dl class="skills">
-      <dt>Program management</dt><dd>Cohort coordination, stakeholder management, cross-timezone logistics, coaching programs, feedback synthesis</dd>
-      <dt>Data &amp; reporting</dt><dd>Performance dashboards, data validation, program reporting, survey design, qualitative research</dd>
-      <dt>Technology</dt><dd>Anthropic Claude API, Canvas LMS, Google Workspace, Microsoft Office, Zoom, Slack, HTML</dd>
-      <dt>Communication</dt><dd>Report and proposal writing, facilitation, cross-cultural communication</dd>
-      <dt>Languages</dt><dd>English (professional)</dd>
-    </dl>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="wrap">
-    <h2>Selected Certifications</h2>
-    <ul class="certs">
-      <li><span>Claude 101 <span class="issuer">· Anthropic</span></span><span class="meta">2026</span></li>
-      <li><span>Google AI Essentials <span class="issuer">· Google</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/GCS5UN4W2E9U" target="_blank" rel="noopener">Verify</a></span></li>
-      <li><span>Generative AI: Prompt Engineering Basics <span class="issuer">· IBM</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/8YVJPXF4X3WL" target="_blank" rel="noopener">Verify</a></span></li>
-      <li><span>AI Career Essentials <span class="issuer">· ALX</span></span><span class="meta">2024 · <a href="https://intranet.alxswe.com/certificates/PYCBXGcSn6" target="_blank" rel="noopener">Verify</a></span></li>
-      <li><span>Research Design: Inquiry and Discovery <span class="issuer">· University of North Texas</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/VVWLA3LMQ4GU" target="_blank" rel="noopener">Verify</a></span></li>
-      <li><span>What Future for Education? <span class="issuer">· UCL Institute of Education</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/34UBAA4PVD36" target="_blank" rel="noopener">Verify</a></span></li>
-    </ul>
-    <details class="no-print">
-      <summary>Show all certifications</summary>
-      <ul class="certs">
-        <li><span>Foundations of AR <span class="issuer">· Meta</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/TYMH8QAM99XF" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Innovation &amp; Emerging Technology: Be Disruptive <span class="issuer">· Macquarie University</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/WUTF3WVUMST8" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>HTML &amp; CSS 7-Day Bootcamp <span class="issuer">· DevTown</span></span><span class="meta">2023 · <a href="https://cert.devtown.in.tech/verify/Z2lpiXu" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Academic Information Seeking <span class="issuer">· University of Copenhagen &amp; DTU</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/NMTNPNAJUM2A" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Project: Writing a Research Paper <span class="issuer">· UC Irvine</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/PCHJDF3AJ2JG" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Solving Problems with Creative &amp; Critical Thinking <span class="issuer">· IBM</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/EE44C7YWUJWD" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Mindware: Critical Thinking for the Information Age <span class="issuer">· University of Michigan</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/KMS9YEW9K6NC" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Welcome to Game Theory <span class="issuer">· University of Tokyo</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/N4CHXJYFB5Q8" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Sustainability through Soccer: Systems-Thinking in Action <span class="issuer">· University of Virginia</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/PWG5G5XBYWLS" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Developing a Systems Mindset <span class="issuer">· University of Colorado Boulder</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/SZ8SY9XEGD58" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Ecology: Ecosystem Dynamics and Conservation <span class="issuer">· American Museum of Natural History</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/8RXVJZNBGKQK" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Strategies for Effective Engagement <span class="issuer">· University of Colorado Boulder</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/455Q9FTTB4WA" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Introduction to Futures Thinking <span class="issuer">· Institute for the Future</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/3JHVF3DX54QB" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Building Fintech Startups in Emerging Markets <span class="issuer">· University of Cape Town</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/2CRA4NT6SEBM" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>New Product Development for Small Businesses and Start-Ups <span class="issuer">· Coursera Project Network</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/JVNTSPGK8Q4V" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Innovation Through Design <span class="issuer">· University of Sydney</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/RSQSVV2356M6" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Beyond Silicon Valley: Entrepreneurship in Transitioning Economies <span class="issuer">· Case Western Reserve University</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/XMETXE5UMTUR" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Strategic Career Self-Management <span class="issuer">· State University of New York</span></span><span class="meta">2024 · <a href="https://coursera.org/verify/S85U3R7L5F69" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Gender Analytics for Innovation <span class="issuer">· University of Toronto</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/A4VSDZJC8CWD" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Queering Identities: LGBTQ+ Sexuality and Gender Identity <span class="issuer">· University of Colorado System</span></span><span class="meta">2023 · <a href="https://coursera.org/verify/FXDNA5Y97PWW" target="_blank" rel="noopener">Verify</a></span></li>
-        <li><span>Millennium Fellowship Project Certificate <span class="issuer">· UN Academic Impact &amp; MCN</span></span><span class="meta">2023</span></li>
-      </ul>
-    </details>
-  </div>
-</section>
-
-<section id="references" class="no-print">
-  <div class="wrap">
-    <h2>Recommendations</h2>
-    <blockquote>
-      <p>“His intellectual discipline, curiosity, and ability to translate learning into action consistently set him apart among his peers.”</p>
-      <cite><b>Arnaud Michel Nibaruta</b> · Program Manager, BSc Entrepreneurial Leadership, African Leadership University</cite>
-    </blockquote>
-    <blockquote>
-      <p>“Responsible, punctual, bright and always eager to learn and find solutions — I have no hesitation in endorsing his ability and skills.”</p>
-      <cite><b>Dr Pei-tseng Jenny Hsieh</b> · Senior Education &amp; Assessment Specialist, NFER · University of Oxford</cite>
-    </blockquote>
-  </div>
-</section>
-
-<section id="contact" class="no-print">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <p>Open to program coordination, EdTech and AI product roles. Based in Kigali; available for remote work and relocation within Africa.</p>
-    <div class="contact" style="margin-top:12px">
-      <a href="mailto:a.boima@studentcompanionai.rw">a.boima@studentcompanionai.rw</a>
-      <a href="tel:+250791920747">+250 791 920 747 (Rwanda)</a>
-      <a href="tel:+232776380087">+232 77 638 0087 (Sierra Leone)</a>
-      <a href="https://www.linkedin.com/in/andrew-steven-boima-98654556" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- Skills -->
+  <section class="card" id="skills">
+    <div class="card-body">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">Program coordination</span>
+        <span class="skill">Professional development</span>
+        <span class="skill">Stakeholder management</span>
+        <span class="skill">Canvas LMS</span>
+        <span class="skill">Feedback &amp; reporting</span>
+        <span class="skill">Dashboards</span>
+        <span class="skill">Survey design</span>
+        <span class="skill">Qualitative research</span>
+        <span class="skill">Proposal writing</span>
+        <span class="skill">Facilitation</span>
+        <span class="skill">Google Workspace</span>
+        <span class="skill">Microsoft Office</span>
+        <span class="skill">Claude API</span>
+        <span class="skill">HTML</span>
+        <span class="skill">English (professional)</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Certifications -->
+  <section class="card" id="certifications">
+    <div class="card-body">
+      <h2>Licenses &amp; certifications</h2>
+      <div class="item small-item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=anthropic.com&amp;sz=128" alt="Anthropic logo" loading="lazy">
+        <div class="item-text"><h3>Claude 101</h3><div class="org">Anthropic</div><div class="when">Issued May 2026</div></div>
+      </div>
+      <div class="item small-item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=google.com&amp;sz=128" alt="Google logo" loading="lazy">
+        <div class="item-text"><h3>Google AI Essentials</h3><div class="org">Google</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/GCS5UN4W2E9U" target="_blank" rel="noopener">Show credential</a></div></div>
+      </div>
+      <div class="item small-item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=ibm.com&amp;sz=128" alt="IBM logo" loading="lazy">
+        <div class="item-text"><h3>Generative AI: Prompt Engineering Basics</h3><div class="org">IBM</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/8YVJPXF4X3WL" target="_blank" rel="noopener">Show credential</a></div></div>
+      </div>
+      <div class="item small-item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=alxafrica.com&amp;sz=128" alt="ALX logo" loading="lazy">
+        <div class="item-text"><h3>AI Career Essentials</h3><div class="org">ALX</div><div class="when">Issued 2024 · <a href="https://intranet.alxswe.com/certificates/PYCBXGcSn6" target="_blank" rel="noopener">Show credential</a></div></div>
+      </div>
+      <div class="item small-item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=unt.edu&amp;sz=128" alt="University of North Texas logo" loading="lazy">
+        <div class="item-text"><h3>Research Design: Inquiry and Discovery</h3><div class="org">University of North Texas</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/VVWLA3LMQ4GU" target="_blank" rel="noopener">Show credential</a></div></div>
+      </div>
+      <div class="item small-item">
+        <img class="logo" src="https://www.google.com/s2/favicons?domain=ucl.ac.uk&amp;sz=128" alt="UCL logo" loading="lazy">
+        <div class="item-text"><h3>What Future for Education?</h3><div class="org">University of London &amp; UCL Institute of Education</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/34UBAA4PVD36" target="_blank" rel="noopener">Show credential</a></div></div>
+      </div>
+
+      <details class="no-print">
+        <summary>Show all 27 certifications</summary>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=meta.com&amp;sz=128" alt="Meta logo" loading="lazy"><div class="item-text"><h3>Foundations of AR</h3><div class="org">Meta</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/TYMH8QAM99XF" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=mq.edu.au&amp;sz=128" alt="Macquarie University logo" loading="lazy"><div class="item-text"><h3>Innovation &amp; Emerging Technology: Be Disruptive</h3><div class="org">Macquarie University</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/WUTF3WVUMST8" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><span class="logo mono" style="background:#3a3a3c" aria-hidden="true">DT</span><div class="item-text"><h3>HTML &amp; CSS 7-Day Bootcamp</h3><div class="org">DevTown</div><div class="when">Issued 2023 · <a href="https://cert.devtown.in.tech/verify/Z2lpiXu" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=ku.dk&amp;sz=128" alt="University of Copenhagen logo" loading="lazy"><div class="item-text"><h3>Academic Information Seeking</h3><div class="org">University of Copenhagen &amp; DTU</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/NMTNPNAJUM2A" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=uci.edu&amp;sz=128" alt="UC Irvine logo" loading="lazy"><div class="item-text"><h3>Project: Writing a Research Paper</h3><div class="org">University of California, Irvine</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/PCHJDF3AJ2JG" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=ibm.com&amp;sz=128" alt="IBM logo" loading="lazy"><div class="item-text"><h3>Solving Problems with Creative &amp; Critical Thinking</h3><div class="org">IBM</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/EE44C7YWUJWD" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=umich.edu&amp;sz=128" alt="University of Michigan logo" loading="lazy"><div class="item-text"><h3>Mindware: Critical Thinking for the Information Age</h3><div class="org">University of Michigan</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/KMS9YEW9K6NC" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=u-tokyo.ac.jp&amp;sz=128" alt="University of Tokyo logo" loading="lazy"><div class="item-text"><h3>Welcome to Game Theory</h3><div class="org">The University of Tokyo</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/N4CHXJYFB5Q8" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=virginia.edu&amp;sz=128" alt="University of Virginia logo" loading="lazy"><div class="item-text"><h3>Sustainability through Soccer: Systems-Thinking in Action</h3><div class="org">University of Virginia</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/PWG5G5XBYWLS" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=colorado.edu&amp;sz=128" alt="University of Colorado Boulder logo" loading="lazy"><div class="item-text"><h3>Developing a Systems Mindset</h3><div class="org">University of Colorado Boulder</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/SZ8SY9XEGD58" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=amnh.org&amp;sz=128" alt="American Museum of Natural History logo" loading="lazy"><div class="item-text"><h3>Ecology: Ecosystem Dynamics and Conservation</h3><div class="org">American Museum of Natural History</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/8RXVJZNBGKQK" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=colorado.edu&amp;sz=128" alt="University of Colorado Boulder logo" loading="lazy"><div class="item-text"><h3>Strategies for Effective Engagement</h3><div class="org">University of Colorado Boulder</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/455Q9FTTB4WA" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=iftf.org&amp;sz=128" alt="Institute for the Future logo" loading="lazy"><div class="item-text"><h3>Ready, Set, Future! Introduction to Futures Thinking</h3><div class="org">Institute for the Future</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/3JHVF3DX54QB" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=uct.ac.za&amp;sz=128" alt="University of Cape Town logo" loading="lazy"><div class="item-text"><h3>Building Fintech Startups in Emerging Markets</h3><div class="org">University of Cape Town</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/2CRA4NT6SEBM" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=coursera.org&amp;sz=128" alt="Coursera logo" loading="lazy"><div class="item-text"><h3>New Product Development for Small Businesses and Start-Ups</h3><div class="org">Coursera Project Network</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/JVNTSPGK8Q4V" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=sydney.edu.au&amp;sz=128" alt="University of Sydney logo" loading="lazy"><div class="item-text"><h3>Innovation Through Design: Think, Make, Break, Repeat</h3><div class="org">University of Sydney</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/RSQSVV2356M6" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=case.edu&amp;sz=128" alt="Case Western Reserve University logo" loading="lazy"><div class="item-text"><h3>Beyond Silicon Valley: Growing Entrepreneurship in Transitioning Economies</h3><div class="org">Case Western Reserve University</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/XMETXE5UMTUR" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=suny.edu&amp;sz=128" alt="State University of New York logo" loading="lazy"><div class="item-text"><h3>Strategic Career Self-Management</h3><div class="org">State University of New York</div><div class="when">Issued 2024 · <a href="https://coursera.org/verify/S85U3R7L5F69" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=utoronto.ca&amp;sz=128" alt="University of Toronto logo" loading="lazy"><div class="item-text"><h3>Gender Analytics for Innovation</h3><div class="org">University of Toronto</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/A4VSDZJC8CWD" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=cu.edu&amp;sz=128" alt="University of Colorado logo" loading="lazy"><div class="item-text"><h3>Queering Identities: LGBTQ+ Sexuality and Gender Identity</h3><div class="org">University of Colorado System</div><div class="when">Issued 2023 · <a href="https://coursera.org/verify/FXDNA5Y97PWW" target="_blank" rel="noopener">Show credential</a></div></div></div>
+        <div class="item small-item"><img class="logo" src="https://www.google.com/s2/favicons?domain=un.org&amp;sz=128" alt="United Nations logo" loading="lazy"><div class="item-text"><h3>Millennium Fellowship Project Certificate</h3><div class="org">UN Academic Impact &amp; Millennium Campus Network</div><div class="when">Issued 2023</div></div></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="card no-print" id="recommendations">
+    <div class="card-body">
+      <h2>Recommendations</h2>
+      <blockquote>
+        <p>"His intellectual discipline, curiosity, and ability to translate learning into action consistently set him apart among his peers."</p>
+        <footer><b>Arnaud Michel Nibaruta</b> · Program Manager, BSc Entrepreneurial Leadership, African Leadership University</footer>
+      </blockquote>
+      <blockquote>
+        <p>"Responsible, punctual, bright and always eager to learn and find solutions. I have no hesitation in endorsing his ability and skills."</p>
+        <footer><b>Dr Pei-tseng Jenny Hsieh</b> · Senior Education &amp; Assessment Specialist, NFER (University of Oxford study)</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="card no-print" id="contact">
+    <div class="card-body">
+      <h2>Contact</h2>
+      <div class="contact-list">
+        <div><span>Email</span><a href="mailto:a.boima@studentcompanionai.rw">a.boima@studentcompanionai.rw</a></div>
+        <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/andrew-steven-boima-98654556" target="_blank" rel="noopener">andrew-steven-boima</a></div>
+        <div><span>Phone (Rwanda)</span><a href="tel:+250791920747">+250 791 920 747</a></div>
+        <div><span>Phone (Sierra Leone)</span><a href="tel:+232776380087">+232 77 638 0087</a></div>
+        <div><span>Website</span><a href="https://andrewstevenboima.github.io">andrewstevenboima.github.io</a></div>
+        <div><span>Location</span>Kigali, Rwanda</div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Andrew Steven Boima</span>
-    <span>andrewstevenboima.github.io</span>
-  </div>
-</footer>
+<p class="site-footer">© 2026 Andrew Steven Boima</p>
 
+
+<script>
+// Swap any organisation logo that fails to load for an initials badge.
+document.querySelectorAll('img.logo').forEach(function (img) {
+  function fallback() {
+    var name = (img.alt || '').replace(/ logo$/i, '').replace(/^(The|University of) /, '');
+    var initials = name.split(/\s+/).filter(function (w) { return /^[A-Z]/.test(w); }).slice(0, 2).map(function (w) { return w[0]; }).join('') || '•';
+    var span = document.createElement('span');
+    span.className = img.className + ' mono';
+    span.style.background = '#5f6b7a';
+    span.setAttribute('aria-hidden', 'true');
+    span.textContent = initials;
+    img.replaceWith(span);
+  }
+  if (img.complete && img.naturalWidth === 0) fallback(); else img.addEventListener('error', fallback);
+});
+</script>
 </body>
 </html>
