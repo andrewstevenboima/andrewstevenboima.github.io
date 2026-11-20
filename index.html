@@ -118,6 +118,32 @@ blockquote footer b { color: var(--ink); }
 
 .site-footer { text-align: center; font-size: 13px; color: var(--muted); padding: 8px 16px 32px; }
 
+
+/* Clickable organisations */
+.org-click { cursor: pointer; }
+.org-click.logo { transition: box-shadow .15s, transform .15s; }
+.org-click.logo:hover, .org-click.logo:focus-visible { box-shadow: 0 0 0 2px var(--link); outline: none; }
+.org-name.org-click { color: var(--ink); text-decoration: underline; text-decoration-color: #c9c7c2; text-underline-offset: 3px; }
+.org-name.org-click:hover, .org-name.org-click:focus-visible { color: var(--link); text-decoration-color: currentColor; outline: none; }
+.current span.org-click:hover, .current span.org-click:focus-visible { color: var(--link); outline: none; }
+
+dialog.org-card { margin: auto; border: 0; padding: 0; border-radius: 12px; width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 48px); box-shadow: 0 20px 60px rgba(0,0,0,.25); color: var(--body); }
+dialog.org-card::backdrop { background: rgba(20,20,20,.45); }
+.oc-head { display: flex; gap: 14px; align-items: center; padding: 22px 22px 14px; border-bottom: 1px solid var(--line); }
+.oc-head .logo, .oc-head .mono { width: 64px; height: 64px; }
+.oc-head h3 { font-size: 20px; line-height: 1.25; color: var(--ink); }
+.oc-type { font-size: 14px; color: var(--muted); margin-top: 2px; }
+.oc-body { padding: 16px 22px 22px; font-size: 15px; }
+.oc-body h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 18px 0 6px; font-weight: 600; }
+.oc-roles { list-style: none; }
+.oc-roles li { padding: 6px 0; border-top: 1px solid var(--line); }
+.oc-roles li:first-child { border-top: 0; }
+.oc-roles b { color: var(--ink); display: block; font-weight: 600; }
+.oc-roles span { font-size: 14px; color: var(--muted); }
+.oc-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.oc-close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border-radius: 50%; border: 0; background: transparent; font-size: 22px; line-height: 1; color: var(--muted); cursor: pointer; }
+.oc-close:hover { background: #efeee9; color: var(--ink); }
+
 @media (max-width: 640px) {
   .card-body { padding: 18px 16px; }
   .intro { padding: 16px 16px 20px; }
@@ -131,6 +157,8 @@ blockquote footer b { color: var(--ink); }
 }
 
 @media print {
+  dialog.org-card { display: none !important; }
+  .org-name.org-click { text-decoration: none; }
   @page { size: A4; margin: 11mm 13mm; }
   body { background: #fff; font-size: 9.5pt; line-height: 1.4; }
   .topbar, .banner, .actions, .no-print, details, .site-footer, .logo, .current { display: none !important; }
@@ -199,8 +227,8 @@ blockquote footer b { color: var(--ink); }
       <p class="meta">Kigali, Rwanda · <a href="#contact">Contact info</a></p>
       <p class="meta print-only">a.boima@studentcompanionai.rw · +250 791 920 747 · +232 77 638 0087 · andrewstevenboima.github.io · linkedin.com/in/andrew-steven-boima-98654556</p>
       <div class="current">
-        <span><img class="logo" src="logos/alu.png" alt="African Leadership University logo"> African Leadership University</span>
-        <span><img class="logo" src="logos/sca.png" alt="Student Companion AI logo"> Student Companion AI</span>
+        <span data-org="alu"><img class="logo" src="logos/alu.png" alt="African Leadership University logo"> African Leadership University</span>
+        <span data-org="sca"><img class="logo" src="logos/sca.png" alt="Student Companion AI logo"> Student Companion AI</span>
       </div>
       <div class="actions">
         <a class="btn btn-primary" href="andrew-boima-cv.pdf" download>Download CV</a>
@@ -224,11 +252,11 @@ blockquote footer b { color: var(--ink); }
     <div class="card-body">
       <h2>Experience</h2>
 
-      <div class="item">
+      <div class="item" data-org="sowc">
         <img class="logo" src="logos/sowc.png" alt="ALU School of Wildlife Conservation logo" loading="lazy">
         <div class="item-text">
           <h3>Professional Development Associate</h3>
-          <div class="org">ALU School of Wildlife Conservation</div>
+          <div class="org org-name">ALU School of Wildlife Conservation</div>
           <div class="when">Oct 2026 – Present · Kigali, Rwanda (remote)</div>
           <ul>
             <li>Support the Manager of Professional Development in designing and running courses for African conservation managers.</li>
@@ -240,11 +268,11 @@ blockquote footer b { color: var(--ink); }
         </div>
       </div>
 
-      <div class="item">
+      <div class="item" data-org="rerwa">
         <img class="logo" src="logos/rerwa.png" alt="RERWA logo" loading="lazy">
         <div class="item-text">
           <h3>Programs &amp; Operations Associate</h3>
-          <div class="org">RERWA Co. Ltd</div>
+          <div class="org org-name">RERWA Co. Ltd</div>
           <div class="when">Jul 2026 – Sep 2026 · Kigali, Rwanda</div>
           <ul>
             <li>Reported to the Founder &amp; CEO across programs, operations, communications, business development and partnerships.</li>
@@ -255,11 +283,11 @@ blockquote footer b { color: var(--ink); }
         </div>
       </div>
 
-      <div class="item">
+      <div class="item" data-org="cra">
         <img class="logo" src="logos/alu.png" alt="African Leadership University logo" loading="lazy">
         <div class="item-text">
           <h3>Curriculum Agent</h3>
-          <div class="org">Center for Re-Imagined Africa, African Leadership University</div>
+          <div class="org org-name">Center for Re-Imagined Africa, African Leadership University</div>
           <div class="when">Aug 2025 – Jun 2026 · Kigali, Rwanda</div>
           <ul>
             <li>Coordinated four cohorts of the Public Sector Fellowship: 141 fellows from 17+ African countries.</li>
@@ -271,11 +299,11 @@ blockquote footer b { color: var(--ink); }
         </div>
       </div>
 
-      <div class="item">
+      <div class="item" data-org="rising">
         <img class="logo" src="logos/rising.png" alt="Rising Academy Network logo" loading="lazy">
         <div class="item-text">
           <h3>Tech &amp; Logistics Support Consultant</h3>
-          <div class="org">Rising International Education and Learning Limited</div>
+          <div class="org org-name">Rising International Education and Learning Limited</div>
           <div class="when">Jan 2023 – Apr 2023 · Rwanda</div>
           <ul>
             <li>Provided technical and logistics support for the Elimu-Soko Educational Project.</li>
@@ -283,11 +311,11 @@ blockquote footer b { color: var(--ink); }
         </div>
       </div>
 
-      <div class="item">
+      <div class="item" data-org="rising">
         <img class="logo" src="logos/rising.png" alt="Rising Academy Network logo" loading="lazy">
         <div class="item-text">
           <h3>Technology / Operations Officer</h3>
-          <div class="org">Rising Academy Network</div>
+          <div class="org org-name">Rising Academy Network</div>
           <div class="when">Jan 2018 – Aug 2022 · Freetown, Sierra Leone</div>
           <ul>
             <li>Managed hundreds of learning devices across several school sites.</li>
@@ -298,11 +326,11 @@ blockquote footer b { color: var(--ink); }
         </div>
       </div>
 
-      <div class="item">
+      <div class="item" data-org="oxford">
         <img class="logo" src="logos/oxford.png" alt="University of Oxford logo" loading="lazy">
         <div class="item-text">
           <h3>Research Assistant</h3>
-          <div class="org">University of Oxford education research project</div>
+          <div class="org org-name">University of Oxford education research project</div>
           <div class="when">Jan 2016 – Sep 2017 · Freetown, Sierra Leone</div>
           <ul>
             <li>Led five enumerators through 2,000+ tablet-based student assessments.</li>
@@ -362,27 +390,27 @@ blockquote footer b { color: var(--ink); }
   <section class="card" id="education">
     <div class="card-body">
       <h2>Education</h2>
-      <div class="item">
+      <div class="item" data-org="alu">
         <img class="logo" src="logos/alu.png" alt="African Leadership University logo" loading="lazy">
         <div class="item-text">
-          <h3>African Leadership University</h3>
+          <h3 class="org-name">African Leadership University</h3>
           <div class="org">BSc (Hons) Entrepreneurial Leadership, First Class Honours</div>
           <div class="when">2022 – 2026 · Graduated 17 July 2026</div>
           <p>Capstone: a mixed-methods study of how students adopt and keep using the Student Companion AI chatbot (survey of 104 students, 10 interviews). Supervised by Emmanuel Ekosse.</p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-org="bluecrest">
         <img class="logo" src="logos/bluecrest.png" alt="BlueCrest College logo" loading="lazy">
         <div class="item-text">
-          <h3>BlueCrest College N.I.I.T.</h3>
+          <h3 class="org-name">BlueCrest College N.I.I.T.</h3>
           <div class="org">Honors Diploma in Information Technology</div>
           <div class="when">2019 – 2021 · Freetown, Sierra Leone</div>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-org="liccsal">
         <img class="logo" src="logos/liccsal.png" alt="LICCSAL Business College logo" loading="lazy">
         <div class="item-text">
-          <h3>LICCSAL Business College</h3>
+          <h3 class="org-name">LICCSAL Business College</h3>
           <div class="org">Diploma in Business Administration</div>
           <div class="when">2015 · Freetown, Sierra Leone</div>
         </div>
@@ -394,7 +422,7 @@ blockquote footer b { color: var(--ink); }
   <section class="card" id="awards">
     <div class="card-body">
       <h2>Honours &amp; awards</h2>
-      <div class="item">
+      <div class="item" data-org="alu">
         <img class="logo" src="logos/alu.png" alt="African Leadership University logo" loading="lazy">
         <div class="item-text">
           <h3>Africa's Opportunity Award</h3>
@@ -402,7 +430,7 @@ blockquote footer b { color: var(--ink); }
           <p>Given to the graduate whose passion for the continent resonates across the ALU community.</p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-org="alu">
         <img class="logo" src="logos/alu.png" alt="African Leadership University logo" loading="lazy">
         <div class="item-text">
           <h3>Resident Genius Award</h3>
@@ -417,36 +445,36 @@ blockquote footer b { color: var(--ink); }
   <section class="card" id="leadership">
     <div class="card-body">
       <h2>Leadership &amp; volunteering</h2>
-      <div class="item">
+      <div class="item" data-org="alu">
         <img class="logo" src="logos/alu.png" alt="African Leadership University logo" loading="lazy">
         <div class="item-text">
           <h3>Mentor, First Year Compass (Cohort 2)</h3>
-          <div class="org">African Leadership University</div>
+          <div class="org org-name">African Leadership University</div>
           <div class="when">2026</div>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-org="millennium">
         <img class="logo" src="logos/millennium.png" alt="Millennium Fellowship logo" loading="lazy">
         <div class="item-text">
           <h3>UN Millennium Fellow</h3>
-          <div class="org">UN Academic Impact &amp; Millennium Campus Network</div>
+          <div class="org org-name">UN Academic Impact &amp; Millennium Campus Network</div>
           <div class="when">Aug 2023 – Dec 2023 · Selected from 44,000+ applicants</div>
           <p>Started Africa Jobs Sierra Leone to connect young Sierra Leoneans with jobs and training.</p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-org="unep">
         <img class="logo" src="logos/unep.png" alt="UNEP logo" loading="lazy">
         <div class="item-text">
           <h3>Online Volunteer, Gender, Youth &amp; Climate</h3>
-          <div class="org">UN Environment Programme (UNEP) Africa</div>
+          <div class="org org-name">UN Environment Programme (UNEP) Africa</div>
           <div class="when">Jan 2023 – Mar 2023</div>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-org="alu">
         <img class="logo" src="logos/alu.png" alt="African Leadership University logo" loading="lazy">
         <div class="item-text">
           <h3>Orientation Facilitator and E-Lab Group Leader</h3>
-          <div class="org">African Leadership University</div>
+          <div class="org org-name">African Leadership University</div>
           <div class="when">2022 – 2023</div>
         </div>
       </div>
@@ -567,6 +595,166 @@ blockquote footer b { color: var(--ink); }
 
 <p class="site-footer">© 2026 Andrew Steven Boima</p>
 
+
+<dialog class="org-card" id="orgCard" aria-labelledby="ocName">
+  <button class="oc-close" type="button" aria-label="Close">×</button>
+  <div class="oc-head">
+    <div id="ocLogo"></div>
+    <div><h3 id="ocName"></h3><div class="oc-type" id="ocType"></div></div>
+  </div>
+  <div class="oc-body">
+    <p id="ocAbout"></p>
+    <h4>My experience here</h4>
+    <ul class="oc-roles" id="ocRoles"></ul>
+    <div class="oc-actions" id="ocActions"></div>
+  </div>
+</dialog>
+
+<script>
+// Organisation profiles shown when a logo or organisation name is clicked.
+var ORGS = {
+  alu: {
+    name: 'African Leadership University (ALU)',
+    type: 'University · Kigali, Rwanda and Mauritius',
+    about: 'A university with campuses in Rwanda and Mauritius, on a mission to develop a new generation of ethical and entrepreneurial African leaders. Students declare missions rather than majors and learn through real-world experience.',
+    site: 'https://www.alueducation.com'
+  },
+  sowc: {
+    name: 'ALU School of Wildlife Conservation',
+    type: 'Part of African Leadership University · Kigali, Rwanda',
+    about: 'A specialised school within ALU that develops African leaders for conservation. It supports ALU undergraduate and MBA students, trains conservation practitioners through short courses and executive education, and hosts the annual Business of Conservation Conference.',
+    site: 'https://sowc.alueducation.com'
+  },
+  cra: {
+    name: 'Center for Re-Imagined Africa (CRA)',
+    logo: 'alu',
+    type: 'Part of African Leadership University · Kigali, Rwanda',
+    about: 'An ALU center that develops public sector leaders across Africa. Its programs include the Public Sector Fellowship for civil servants from across the continent, Togo\u2019s Digital Ambassador Program and an executive coaching program.',
+    site: 'https://www.alueducation.com'
+  },
+  rerwa: {
+    name: 'RERWA',
+    type: 'Human development institution · Kigali, Rwanda',
+    about: 'RERWA builds the capacity for people and institutions to live meaningful lives and create lasting impact, through personal development, character formation, leadership and organisational culture. Its motto: Principled People. Meaningful Lives.',
+    site: 'https://rerwacollective.org'
+  },
+  rising: {
+    name: 'Rising Academy Network (Rising Academies)',
+    type: 'Education organisation · Founded in Sierra Leone, 2014',
+    about: 'Rising helps governments deliver better learning at scale in Africa, strengthening teaching and learning in public school systems through evidence-based approaches and practical technology. Rising International Education and Learning Limited is part of the same organisation.',
+    site: 'https://www.risingacademies.com'
+  },
+  oxford: {
+    name: 'University of Oxford',
+    type: 'University · Oxford, United Kingdom',
+    about: 'The oldest university in the English-speaking world and one of the world\u2019s leading research universities. I worked on an Oxford education research study in Sierra Leone, running tablet-based student assessments.',
+    site: 'https://www.ox.ac.uk'
+  },
+  bluecrest: {
+    name: 'BlueCrest College',
+    type: 'Private college · Wilkinson Road, Freetown, Sierra Leone',
+    about: 'A private tertiary college offering technology and business programmes, accredited by Sierra Leone\u2019s National Council for Technical, Vocational and Other Academic Awards (NCTVA) in 2015. Part of the BlueCrest group, which also has campuses in Ghana and Liberia. Motto: Education for Life.'
+  },
+  liccsal: {
+    name: 'LICCSAL Business College',
+    type: 'Private college · Wilberforce, Freetown, Sierra Leone · Est. 2000',
+    about: 'One of Sierra Leone\u2019s oldest private higher education institutions, with more than 4,000 alumni. It is affiliated with the University of Sierra Leone through the Institute of Public Administration and Management (IPAM). Motto: Education for Productivity.'
+  },
+  millennium: {
+    name: 'Millennium Fellowship',
+    type: 'United Nations Academic Impact & Millennium Campus Network',
+    about: 'A semester-long leadership program for university students, run by United Nations Academic Impact and the Millennium Campus Network. Fellows lead projects on their campuses and in their communities that advance the UN Sustainable Development Goals.',
+    site: 'https://www.millenniumfellows.org'
+  },
+  unep: {
+    name: 'UN Environment Programme (UNEP)',
+    type: 'United Nations agency · Headquarters: Nairobi, Kenya',
+    about: 'The United Nations\u2019 leading authority on the environment, working with governments and partners on climate change, nature and biodiversity loss, and pollution.',
+    site: 'https://www.unep.org'
+  },
+  sca: {
+    name: 'Student Companion AI',
+    type: 'EdTech · Kigali, Rwanda · Founded 2025',
+    about: 'A platform I founded that gives university students in Africa one place for academic and administrative support, on the web and WhatsApp.',
+    site: 'https://studentcompanionai.rw'
+  }
+};
+
+(function () {
+  var dlg = document.getElementById('orgCard');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var lastFocus = null;
+
+  function rolesFor(key) {
+    var out = [];
+    document.querySelectorAll('.item[data-org="' + key + '"]').forEach(function (item) {
+      var h3 = item.querySelector('h3');
+      var org = item.querySelector('.org');
+      var when = item.querySelector('.when');
+      var title = h3 ? h3.textContent : '';
+      if (h3 && h3.classList.contains('org-name') && org) title = org.textContent;
+      out.push({ title: title, when: when ? when.textContent : '' });
+    });
+    return out;
+  }
+
+  function open(key) {
+    var o = ORGS[key]; if (!o) return;
+    var logo = document.getElementById('ocLogo');
+    logo.innerHTML = '';
+    var img = document.createElement('img');
+    img.className = 'logo'; img.alt = o.name + ' logo';
+    img.src = 'logos/' + (o.logo || key) + '.png';
+    logo.appendChild(img);
+    document.getElementById('ocName').textContent = o.name;
+    document.getElementById('ocType').textContent = o.type;
+    document.getElementById('ocAbout').textContent = o.about;
+    var ul = document.getElementById('ocRoles'); ul.innerHTML = '';
+    var roles = rolesFor(key);
+    ul.previousElementSibling.style.display = roles.length ? '' : 'none';
+    roles.forEach(function (r) {
+      var li = document.createElement('li');
+      var b = document.createElement('b'); b.textContent = r.title;
+      var sp = document.createElement('span'); sp.textContent = r.when;
+      li.appendChild(b); li.appendChild(sp); ul.appendChild(li);
+    });
+    var act = document.getElementById('ocActions'); act.innerHTML = '';
+    if (o.site) {
+      var a = document.createElement('a');
+      a.className = 'btn btn-primary'; a.href = o.site; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'Visit website';
+      act.appendChild(a);
+    }
+    lastFocus = document.activeElement;
+    dlg.showModal();
+  }
+
+  function makeClickable(el, key, label) {
+    if (!el) return;
+    el.classList.add('org-click');
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', 'About ' + label);
+    el.addEventListener('click', function () { open(key); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(key); }
+    });
+  }
+
+  document.querySelectorAll('[data-org]').forEach(function (el) {
+    var key = el.getAttribute('data-org');
+    if (!ORGS[key]) return;
+    var label = ORGS[key].name;
+    if (el.tagName === 'SPAN') { makeClickable(el, key, label); return; }
+    makeClickable(el.querySelector('.logo'), key, label);
+    makeClickable(el.querySelector('.org-name'), key, label);
+  });
+
+  dlg.querySelector('.oc-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (lastFocus) lastFocus.focus(); });
+})();
+</script>
 
 <script>
 // Swap any organisation logo that fails to load for an initials badge.
